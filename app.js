@@ -8,6 +8,12 @@
         ])
         .config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
             $locationProvider.hashPrefix('!');
-            $routeProvider.otherwise({redirectTo: '/nba'});
+            $routeProvider
+            .when('/', {
+                templateUrl : 'event/index.html',
+				controller  : 'eventController',
+                controllerAs: 'vm'
+            })
+            .otherwise({redirectTo: '/'});
         }]);
 })();
