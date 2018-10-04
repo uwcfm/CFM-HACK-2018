@@ -70,7 +70,12 @@
                 .catch(getStatsError);
 
             function getStatsSuccess(rsp) {
-                return rsp.data;
+                let stats = [];
+                rsp.data.rowSet.forEach(row => {
+                    stats.push(_.object(rsp.data.headers, row));
+                })
+                
+                return stats;
             }
 
             function getStatsError(error) {

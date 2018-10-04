@@ -18,17 +18,36 @@
                         label: 'Points vs Minutes Played',
                         data: vm.players.map(player => {
                             return {
-                                x: player.Time,
-                                y: player.PPG
+                                x: player.MIN,
+                                y: player.PTS,
+                                name: player.PLAYER_NAME
                             }
                         })
                     }]
                 },
                 options: {
+                    tooltips: {
+                        callbacks: {
+                            label: function(tooltipItem, data) {
+                                let name = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].name;
+                                return name + " scores " + Number(tooltipItem.yLabel) + " points in " + Number(tooltipItem.xLabel) + " mins";
+                            }
+                        }
+                    },
                     scales: {
                         xAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Minutes Played'
+                            },
                             type: 'linear',
                             position: 'bottom'
+                        }],
+                        yAxes: [{
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Points'
+                            }
                         }]
                     }
                 }
