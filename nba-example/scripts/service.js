@@ -15,7 +15,7 @@
         };
 
         function getTeams() {
-            var url = '/nba-example/data/teams.json';
+            var url = '/data/teams.json';
 
             return $http.get(url)
                 .then(getTeamsSuccess)
@@ -31,7 +31,7 @@
         }
 
         function getTeamById(teamId) {
-            var url = '/nba-example/data/teams.json';
+            var url = '/data/teams.json';
 
             return $http.get(url)
                 .then(getTeamByIdSuccess)
@@ -47,7 +47,7 @@
         }
 
         function getRoster(teamId) {
-            var url = '/nba-example/data/players.json';
+            var url = '/data/players.json';
 
             return $http.get(url)
                 .then(getRosterSuccess)
@@ -63,7 +63,7 @@
         }
 
         function getStats() {
-            var url = '/nba-example/data/playerStats.json';
+            var url = '/data/playerStats.json';
 
             return $http.get(url)
                 .then(getStatsSuccess)
