@@ -1,0 +1,31 @@
+.right-align {
+    float: right;
+}
+
+.category-widget {
+    height: 300px;
+    border: white 5px solid;
+    border-radius: 2px;
+}
+
+.team-widget {
+    height: 300px;
+    border: white 5px solid;
+    border-radius: 10px;
+}
+
+.red-background {
+    background: #C61533;
+}
+
+.blue-background {
+    background: #1F4487;
+}
+
+.vertical-center {
+    margin-top: 130px;
+}
+
+.white-text, .white-text:after, .white-text:hover {
+    color: white;
+}

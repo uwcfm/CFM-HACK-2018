@@ -1,0 +1,7 @@
+<div class="container">
+    <h1 class="text-center">{{vm.team.teamName}} Roster</h1>
+
+    <div class="col-xs-12 col-md-3 team-widget blue-background" ng-repeat="player in vm.roster">
+        <h3 class="white-text vertical-center text-center"><p>{{player.firstName}} {{player.lastName}}</p></h3>
+    </div>
+</div>
