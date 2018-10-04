@@ -15,7 +15,7 @@
         };
 
         function getTeams() {
-            var url = '/data/teams.json';
+            var url = '/CFM-HACK-2018/data/teams.json';
 
             return $http.get(url)
                 .then(getTeamsSuccess)
@@ -31,7 +31,7 @@
         }
 
         function getTeamById(teamId) {
-            var url = '/data/teams.json';
+            var url = '/CFM-HACK-2018/data/teams.json';
 
             return $http.get(url)
                 .then(getTeamByIdSuccess)
@@ -47,7 +47,7 @@
         }
 
         function getRoster(teamId) {
-            var url = '/data/players.json';
+            var url = '/CFM-HACK-2018/data/players.json';
 
             return $http.get(url)
                 .then(getRosterSuccess)
@@ -63,7 +63,7 @@
         }
 
         function getStats() {
-            var url = '/data/playerStats.json';
+            var url = '/CFM-HACK-2018/data/playerStats.json';
 
             return $http.get(url)
                 .then(getStatsSuccess)
