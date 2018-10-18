@@ -10,16 +10,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router basename={'/CFM-HACK-2018'}>
           <div className='home-container'>
             <Nav />
             <div className='home-container'>
               <h1>CFM Hackathon</h1>
             </div>
             <Switch>
-              <Route exact path={`/`} component={Home} />
+              <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
               {/* <Route exact path='/about' component={About} /> */}
-              <Route exact path={`/example`} component={Example} />
+              <Route exact path={`${process.env.PUBLIC_URL}/example`} component={Example} />
               <Route render={function () {
                 return <p>Not Found</p>
               }} />
