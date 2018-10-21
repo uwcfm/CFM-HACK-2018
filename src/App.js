@@ -12,9 +12,9 @@ class App extends Component {
     return (
       <div className="App">
         <HashRouter>
-          <div className='home-container'>
+          <div className='container'>
             <Nav />
-            <div className='home-container'>
+            <div className='container'>
               <h1>CFM Hackathon</h1>
             </div>
             <Switch>
