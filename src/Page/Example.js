@@ -13,13 +13,10 @@ var options = {
   title: {
     text: 'NBA Player\'s Score Breakdown'
   },
-  subtitle: {
-    text: 'Source: Heinz  2003'
-  },
   xAxis: {
     title: {
         enabled: true,
-        text: 'Height (cm)'
+        text: 'Average Minutes Played'
     },
     startOnTick: true,
     endOnTick: true,
@@ -27,7 +24,7 @@ var options = {
   },
   yAxis: {
       title: {
-          text: 'Weight (kg)'
+          text: 'Average Points'
       }
   },
   legend: {
@@ -60,7 +57,7 @@ plotOptions: {
         },
         tooltip: {
             headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: '{point.x} cm, {point.y} kg'
+            pointFormat: '{point.name} scores {point.y} points in {point.x} minutes'
         }
     }
   },
@@ -82,21 +79,20 @@ class Example extends Component {
     )
     return statsJSONArr;
   }
+  
   generateSeries (statsJSONArr) {
-    // var stat = statsJSONArr[0];
-    // var makeup = {};
-    // var playerSeries = [];
     var series = [{
-          name: 'Female',
-          color: 'rgba(223, 83, 83, .5)',
-          data: [[163.8, 67.3]]
-
-      }, {
-          name: 'Male',
-          color: 'rgba(119, 152, 191, .5)',
-          data: [[174.0, 65.6]]
-      }]
-      return series;
+      name: 'NBA players',
+      data: statsJSONArr.map(player => {
+        return {
+          x: player.MIN,
+          y: player.PTS,
+          name: player.PLAYER_NAME
+        }
+      })
+    }]
+    
+    return series;
   }
   render() {
     var statsJSONArr = this.convertPlayerStatJSON();
