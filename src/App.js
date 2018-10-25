@@ -14,9 +14,6 @@ class App extends Component {
         <HashRouter>
           <div className='container'>
             <Nav />
-            <div className='container'>
-              <h1>CFM Hackathon</h1>
-            </div>
             <Switch>
               <Route exact path={`/`} component={Home} />
               {/* <Route exact path='/about' component={About} /> */}

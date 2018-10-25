@@ -7,6 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div className='container'>
+        <h2 className="display-3">CFM Hackathon</h2>
         <Jumbotron fluid>
           <Container fluid>
             <h2 className="display-3">Important Info</h2>
@@ -17,15 +18,6 @@ class Home extends Component {
             <Alert color="info">
               Reminder: Start looking for your group (team of 4). Don't forget to bring your own laptop and charger
             </Alert>
-          </Container>
-        </Jumbotron>
-        <Jumbotron fluid>
-          <Container fluid>
-            <h1 className="display-3">Kickoff</h1>
-            <p className="lead">Date</p>
-            <p className="text-muted">5:30pm Nov. 16</p>
-            <p>Place: DC3336</p>
-            <p>Food: Pizza will be provided</p>
           </Container>
         </Jumbotron>
         <Jumbotron fluid>
@@ -43,11 +35,24 @@ class Home extends Component {
         </Jumbotron>
         <Jumbotron fluid>
           <Container fluid>
+            <h1 className="display-3">Kickoff</h1>
+            <p className="lead">Date: 5:30pm Nov. 16</p>
+            <p>Place: DC3336</p>
+            <p>Food: Pizza will be provided</p>
+          </Container>
+        </Jumbotron>
+        <Jumbotron fluid>
+          <Container fluid>
+            <h2 className="display-3">Awards</h2>
+            <p>Categories: Best Coding Style, Best Web Design, Best Portfolio Return</p>
+            <p>Judges: CFM mentors and staffs</p>
+          </Container>
+        </Jumbotron>
+        <Jumbotron fluid>
+          <Container fluid>
             <h2 className="display-3">Resource</h2>
-              <p className="text-muted">Tutorials: Git, ReactJS</p>
-              <p className="text-muted">Judges: CFM mentors, Yi, and Heather</p>
-              <p className="text-muted">Awards: Best coding style, Best web design, Best portfolio</p>
-              <Link to="/example"><Button color="secondary">Learn More</Button></Link>{' '}
+            <p>Tutorials: Git, ReactJS</p>
+            <Link to="/example"><Button color="secondary">Learn More</Button></Link>
           </Container>
         </Jumbotron>
       </div>
