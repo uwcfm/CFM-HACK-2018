@@ -51,7 +51,15 @@ class Home extends Component {
         <Jumbotron fluid>
           <Container fluid>
             <h2 className="display-3">Resource</h2>
-            <p>Tutorials: Git, ReactJS</p>
+            {/* <p>Tutorials: Git, ReactJS</p> */}
+            <p>
+              Git: 
+              <a href="https://git-scm.com/downloads">Git Download</a>,
+              <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Git Setup</a>,
+              <a href="https://www.atlassian.com/git/tutorials">Git Tutorials from Atlassian</a>,
+              <a href="https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases">Git Aliases</a>,
+              <a href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">Git Rebasing</a>
+            </p>
             <Link to="/example"><Button color="secondary">Learn More</Button></Link>
           </Container>
         </Jumbotron>
