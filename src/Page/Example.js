@@ -4,6 +4,7 @@ import PlayerStats from '../Data/playerStats';
 import Teams from '../Data/teams';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import { Jumbotron } from 'reactstrap';
 
 var options = {
   chart: {
@@ -79,7 +80,7 @@ class Example extends Component {
     )
     return statsJSONArr;
   }
-  
+
   generateSeries (statsJSONArr) {
     var series = [{
       name: 'NBA players',
@@ -91,7 +92,7 @@ class Example extends Component {
         }
       })
     }]
-    
+
     return series;
   }
   render() {
@@ -99,14 +100,18 @@ class Example extends Component {
     var series = this.generateSeries(statsJSONArr);
     options['series'] = series;
     return (
-      <div className='home-container'>
-        <h2>Example: NBA</h2>
-        {/* <p>{Players.length}</p> */}
-        {Teams.length}
-        <HighchartsReact
-          highcharts={Highcharts}
-          options={options}
-        />
+      <div className='container'>
+        <Jumbotron fluid>
+          <div className='container'>
+            <h2>Example: NBA</h2>
+            {/* <p>{Players.length}</p> */}
+            {Teams.length}
+            <HighchartsReact
+              highcharts={Highcharts}
+              options={options}
+            />
+          </div>
+        </Jumbotron>
       </div>
     )
   }
