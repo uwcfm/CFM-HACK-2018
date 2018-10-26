@@ -13,7 +13,7 @@ class Home extends Component {
             <h2 className="display-3">Important Info</h2>
             <p>Kickoff Date: 5:30pm Nov. 16</p>
             <p>Submission deadline: 10am on Nov. 19</p>
-            <p>Theme: Portfolio Analysis</p>
+            <p>Theme: Portfolio Analytics</p>
             <p>In this hackathon, we will develop a frontend application using ReactJS. A stock json file will be provided. The file consists of the one year TSX60 stocks data. Based on the data, pick 5 stocks to build a equally-weighted portfolio. The team with the highest portfolio return in a week wins.</p>
             <Alert color="info">
               Reminder: Start looking for your group (team of 4). Don't forget to bring your own laptop and charger
@@ -36,7 +36,7 @@ class Home extends Component {
         <Jumbotron fluid>
           <Container fluid>
             <h1 className="display-3">Kickoff</h1>
-            <p className="lead">Date: 5:30pm Nov. 16</p>
+            <p className="lead">Date: 6:00pm Nov. 16</p>
             <p>Place: DC3336</p>
             <p>Food: Pizza will be provided<i class="em em-pizza"></i></p>
           </Container>
