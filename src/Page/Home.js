@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div className='container'>
-        <h2 className="display-3">CFM Hackathon</h2>
+        <h2 className="display-4">CFM Hackathon 2018</h2>
         <Jumbotron fluid>
           <Container fluid>
             <h2 className="display-3">Important Info</h2>
