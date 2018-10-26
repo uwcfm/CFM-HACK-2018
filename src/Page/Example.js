@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import Players from '../Data/players';
 import PlayerStats from '../Data/playerStats';
-import Teams from '../Data/teams';
+// import Teams from '../Data/teams';
 import TeamColor from "../Data/teamColors";
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -35,7 +35,7 @@ var options = {
     verticalAlign: 'top',
     x: 100,
     y: 70,
-    floating: true,
+    floating: false,
     backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
     borderWidth: 1
 },
@@ -120,12 +120,13 @@ class Example extends Component {
         <Jumbotron fluid>
           <div className='container'>
             <h2>Example: NBA</h2>
-            {/* <p>{Players.length}</p> */}
-            {Teams.length}
             <HighchartsReact
               highcharts={Highcharts}
               options={options}
             />
+            Reference:
+            <a href="https://api.highcharts.com/highcharts/series.scatter">Highcharts API</a>
+            <a href="https://dynasties.operationsports.com/team-colors.php?sport=nba">Color Link </a>
           </div>
         </Jumbotron>
       </div>

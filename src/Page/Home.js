@@ -24,12 +24,12 @@ class Home extends Component {
           <Container fluid>
             <h2 className="display-3">Rules</h2>
             <ListGroup>
-              <ListGroupItem>Each student will clone the starter repository and create a new team branch from the repository</ListGroupItem>
-              <ListGroupItem>To submit your code, you need to push your latest code to the team branch before the deadline</ListGroupItem>
-              <ListGroupItem>If you commit new changes after the deadline, you will be disqualified from the awards</ListGroupItem>
-              <ListGroupItem>DO NOT modify the data files or anything outside of your team folder!</ListGroupItem>
-              <ListGroupItem>Make sure all numbers are calculated from the data file. Do not hardcode numbers! We will catch you!</ListGroupItem>
-              <ListGroupItem>Project should at least include information regarding stock analysis, portfolio return, each group member's profile, and graphs/charts about the portfolio</ListGroupItem>
+              <ListGroupItem color="info">Each student will clone the starter repository and create a new team branch from the repository</ListGroupItem>
+              <ListGroupItem color="info">To submit your code, you need to push your latest code to the team branch before the deadline</ListGroupItem>
+              <ListGroupItem color="info">If you commit new changes after the deadline, you will be disqualified from the awards</ListGroupItem>
+              <ListGroupItem color="danger"> <i class="em em-warning"></i>&nbsp;&nbsp;DO NOT modify the data files or anything outside of your team folder!</ListGroupItem>
+              <ListGroupItem color="info">Make sure all numbers are calculated from the data file. Do not hardcode numbers! We will catch you!</ListGroupItem>
+              <ListGroupItem color="info">Project should at least include information regarding stock analysis, portfolio return, each group member's profile, and graphs/charts about the portfolio</ListGroupItem>
             </ListGroup>
           </Container>
         </Jumbotron>
@@ -38,7 +38,7 @@ class Home extends Component {
             <h1 className="display-3">Kickoff</h1>
             <p className="lead">Date: 5:30pm Nov. 16</p>
             <p>Place: DC3336</p>
-            <p>Food: Pizza will be provided</p>
+            <p>Food: Pizza will be provided<i class="em em-pizza"></i></p>
           </Container>
         </Jumbotron>
         <Jumbotron fluid>
@@ -53,7 +53,7 @@ class Home extends Component {
             <h2 className="display-3">Resource</h2>
             {/* <p>Tutorials: Git, ReactJS</p> */}
             <p>
-              Git: 
+              Git:
               <a href="https://git-scm.com/downloads">Git Download</a>,
               <a href="https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup">Git Setup</a>,
               <a href="https://www.atlassian.com/git/tutorials">Git Tutorials from Atlassian</a>,
