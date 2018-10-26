@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import Players from '../Data/players';
 import PlayerStats from '../Data/playerStats';
 import Teams from '../Data/teams';
+import TeamColor from "../Data/teamColors";
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { Jumbotron } from 'reactstrap';
@@ -82,17 +83,32 @@ class Example extends Component {
   }
 
   generateSeries (statsJSONArr) {
-    var series = [{
-      name: 'NBA players',
-      data: statsJSONArr.map(player => {
-        return {
+    var seriesObj = {};
+    var series = [];
+    statsJSONArr.forEach((player) => {
+      if(!seriesObj[player.TEAM_ABBREVIATION]){
+        seriesObj[player.TEAM_ABBREVIATION] = [];
+      }
+      seriesObj[player.TEAM_ABBREVIATION].push(
+        {
           x: player.MIN,
           y: player.PTS,
           name: player.PLAYER_NAME
         }
-      })
-    }]
-
+      )
+    })
+    Object.keys(seriesObj).forEach(key => {
+      var obj = {
+        name: key,
+        symbolIndex: 0,
+        data: seriesObj[key]
+      }
+      if(TeamColor[key]){
+        obj['color']= TeamColor[key]
+      }
+      series.push(obj);
+    });
+    console.log(series);
     return series;
   }
   render() {
