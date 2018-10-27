@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, ListGroup, ListGroupItem, Alert, Button } from 'reactstrap';
-// var Link = require('react-router-dom').Link;
 import { Link } from "react-router-dom";
 
 class Home extends Component {
@@ -35,7 +34,7 @@ class Home extends Component {
               <ListGroupItem color="info"><i class="em em-boy"></i>&nbsp;&nbsp;Each group create a new team branch from the repository</ListGroupItem>
               <ListGroupItem color="info"><i class="em em-man"></i>&nbsp;&nbsp;The submission from each group should at least include information regarding each group member's profile, stock analysis, portfolio return, and graphs/charts about the constructed portfolio</ListGroupItem>
               <ListGroupItem color="info"><i class="em em-older_man"></i>&nbsp;&nbsp;Each group would push your latest code to the team branch before the deadline and open a pull request for submission</ListGroupItem>
-              <ListGroupItem color="warning"><i class="em em-warning"></i>&nbsp;&nbsp;DO NOT modify the data files or anything outside of your team folder!</ListGroupItem>
+              <ListGroupItem color="warning"><i class="em em-warning"></i>&nbsp;&nbsp;DO NOT modify the data files or delete code that already exist!</ListGroupItem>
               <ListGroupItem color="warning"><i class="em em-warning"></i>&nbsp;&nbsp;Make sure all numbers are calculated from the data file. Do not hardcode numbers! We will catch you!</ListGroupItem>
               <ListGroupItem color="danger"><i class="em em-exclamation"></i>&nbsp;&nbsp;If a group commits changes after the deadline, such group will be disqualified from the awards</ListGroupItem>
             </ListGroup>
@@ -52,7 +51,6 @@ class Home extends Component {
         <Jumbotron fluid>
           <Container fluid>
             <h2 className="display-3">Resource</h2>
-            {/* <p>Tutorials: Git, ReactJS</p> */}
             <p>
               Git:
               <a href="https://git-scm.com/downloads">Git Download</a>,
@@ -63,6 +61,8 @@ class Home extends Component {
             </p>
             <p>
               React:
+              <a href="https://reactstrap.github.io/">React Bootstrap API</a>,
+              <a href="https://api.highcharts.com/highcharts/series.scatter">Highcharts API</a>
             </p>
             <Link to="/example"><Button color="secondary">Learn More</Button></Link>
           </Container>
