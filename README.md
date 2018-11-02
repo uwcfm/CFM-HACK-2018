@@ -1,5 +1,12 @@
 # CFM-HACK-2018
-editted by Martin Chu
+
+Download and Installations
+
+- [Git](https://git-scm.com/downloads)
+- [NodeJS](https://nodejs.org/en/download/)
+
+
+Start the application
 
 ```
 $ npm install
