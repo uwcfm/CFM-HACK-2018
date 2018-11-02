@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 import './App.css';
 import Nav from './Components/Nav';
+import Footer from './Components/Footer';
 import Home from './Page/Home';
 import Example from './Page/Example';
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
                 return <p>Not Found</p>
               }} />
             </Switch>
+            <Footer />
           </div>
         </HashRouter>
       </div>
