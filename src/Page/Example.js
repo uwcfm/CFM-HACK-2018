@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import Players from '../Data/players';
 import PlayerStats from '../Data/playerStats';
-// import Teams from '../Data/teams';
 import TeamColor from "../Data/teamColors";
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -111,6 +109,7 @@ class Example extends Component {
     console.log(series);
     return series;
   }
+  
   render() {
     var statsJSONArr = this.convertPlayerStatJSON();
     var series = this.generateSeries(statsJSONArr);
