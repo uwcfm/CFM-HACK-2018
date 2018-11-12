@@ -13,6 +13,7 @@ class Home extends Component {
             <p className="lead">Date: 6:00pm November 16, 2018</p>
             <p>Place: DC3336</p>
             <p>Food: Pizza will be provided<i class="em em-pizza"></i></p>
+            <p>Tutorials: <a href="https://github.com/uwcfm/CFM-HACK-2018/blob/master/tutorials/git.pdf">Git</a></p>
           </Container>
         </Jumbotron>
         <Jumbotron fluid>
