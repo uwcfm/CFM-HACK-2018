@@ -10,5 +10,5 @@ Start the application
 
 ```
 $ npm install
-$ yarn start
+$ npm start
 ```
