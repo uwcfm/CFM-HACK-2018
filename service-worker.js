@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/CFM-HACK-2018/precache-manifest.aca876ea2ec746075d09dc59d371d58c.js"
+  "/CFM-HACK-2018/precache-manifest.41c5c869eee0a88d54be54f393a84586.js"
 );
 
 workbox.clientsClaim();
