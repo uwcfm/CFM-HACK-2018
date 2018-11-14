@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron, Container, ListGroup, ListGroupItem, Alert, Button } from 'reactstrap';
 import { Link } from "react-router-dom";
+import GitTutorial from '../Tutorials/git.pdf';
 
 class Home extends Component {
   render() {
@@ -13,7 +14,7 @@ class Home extends Component {
             <p className="lead">Date: 6:00pm November 16, 2018</p>
             <p>Place: DC3336</p>
             <p>Food: Pizza will be provided<i class="em em-pizza"></i></p>
-            <p>Tutorials: <a href="https://github.com/uwcfm/CFM-HACK-2018/blob/master/tutorials/git.pdf">Git</a></p>
+            <p>Tutorials: <a href={GitTutorial}>Git</a></p>
           </Container>
         </Jumbotron>
         <Jumbotron fluid>
@@ -22,6 +23,7 @@ class Home extends Component {
             <p>Submission Deadline: 10:00am on November 19, 2018 (Open a pull request on Github!)</p>
             <p>Theme: <i class="em em-chart_with_downwards_trend"></i> Portfolio Analytics <i class="em em-chart_with_upwards_trend"></i></p>
             <p>Detail: In this hackathon, each group will develop a frontend application using ReactJS. A <a href="https://raw.githubusercontent.com/uwcfm/CFM-HACK-2018/master/src/Data/stocks.json">stock json file</a> will be provided (already in the repository). The file consists of the one year TSX60 stocks data. Based on the data, pick 5 stocks to build an equally-weighted portfolio.</p>
+            <p>Key Assumptions: 3.2% risk free rate, 365 days in a year</p>
             <Alert color="info">
               Reminder: Start looking for your group (team of 4 or less). Don't forget to bring your own laptop and charger.
             </Alert>
