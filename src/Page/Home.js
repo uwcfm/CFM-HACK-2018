@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Jumbotron, Container, ListGroup, ListGroupItem, Alert, Button } from 'reactstrap';
 import { Link } from "react-router-dom";
 import GitTutorial from '../Tutorials/git.pdf';
+import StockValuation from '../Tutorials/stock-valuation.pdf';
 
 class Home extends Component {
   render() {
@@ -14,7 +15,7 @@ class Home extends Component {
             <p className="lead">Date: 6:00pm November 16, 2018</p>
             <p>Place: DC3336</p>
             <p>Food: Pizza will be provided<i class="em em-pizza"></i></p>
-            <p>Tutorials: <a href={GitTutorial}>Git</a></p>
+            <p>Tutorials: <a href={StockValuation}>Stock Valuation</a>, <a href={GitTutorial}>Git</a></p>
           </Container>
         </Jumbotron>
         <Jumbotron fluid>
