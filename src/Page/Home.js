@@ -46,6 +46,16 @@ class Home extends Component {
         </Jumbotron>
         <Jumbotron fluid>
           <Container fluid>
+            <h2 className="display-3">Environment Setup</h2>
+            <p>1. Go to <a href="https://github.com/join?source=header-home">Github</a> and create an account</p>
+            <p>2. Give Torry your account name, so we can add you as a collaborator to the repository</p>
+            <p>3. Install Git and NodeJS</p>
+            <p>4. Clone the repo to local machines</p>
+            <p>5. Boot up the app and you are good to hack!</p>
+          </Container>
+        </Jumbotron>
+        <Jumbotron fluid>
+          <Container fluid>
             <h2 className="display-3">Awards</h2>
             <p>Categories: Best Coding Style, Best Web Design, Best Portfolio Return</p>
             <p>Judges: CFM mentors and staffs</p>
@@ -67,6 +77,10 @@ class Home extends Component {
               React:
               <a href="https://reactstrap.github.io/">React Bootstrap API</a>,
               <a href="https://api.highcharts.com/highcharts/series.scatter">Highcharts API</a>
+            </p>
+            <p>
+              Linux:
+              <a href="http://cc.iiti.ac.in/docs/linuxcommands.pdf">Linux Commands</a>
             </p>
             <Link to="/example"><Button color="secondary">Learn More</Button></Link>
           </Container>
