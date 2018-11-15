@@ -1,0 +1,10 @@
+export { default as Team1 } from './Team1/Team1';
+export { default as Team2 } from './Team2/Team2';
+export { default as Team3 } from './Team3/Team3';
+export { default as Team4 } from './Team4/Team4';
+export { default as Team5 } from './Team5/Team5';
+export { default as Team6 } from './Team6/Team6';
+export { default as Team7 } from './Team7/Team7';
+export { default as Team8 } from './Team8/Team8';
+export { default as Team9 } from './Team9/Team9';
+export { default as Team10 } from './Team10/Team10';

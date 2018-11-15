@@ -1,19 +1,19 @@
-// Samuel Chen
-// Steve Sam-Soon
-// Dhayria Rao
-// Fox Mutual
+// Annabel Qi
+// Ordencia Wu
+// Esther Jin
+// Mandy Cao
 
 import React, { Component } from 'react';
 // import Highcharts from 'highcharts';
 // import HighchartsReact from 'highcharts-react-official';
 // import { Jumbotron } from 'reactstrap';
 
-class Team4 extends Component { 
+class Team5 extends Component { 
   render() {
     return (
-      <div className='container'>Team 4
-       </div>
+      <div className='container'>Team 5</div>
     )
   }
 }
-export default Team4;
+
+export default Team5;

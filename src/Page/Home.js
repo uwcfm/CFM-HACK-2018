@@ -52,7 +52,8 @@ class Home extends Component {
             <p>2. Give Torry your account name, so we can add you as a collaborator to the repository</p>
             <p>3. Install Git and NodeJS</p>
             <p>4. Clone the repo to local machines</p>
-            <p>5. Boot up the app and you are good to hack!</p>
+            <p>5. Create a new team branch from master</p>
+            <p>6. Boot up the app and you are good to hack!</p>
           </Container>
         </Jumbotron>
         <Jumbotron fluid>

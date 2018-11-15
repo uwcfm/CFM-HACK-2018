@@ -1,20 +1,19 @@
-// Sherman Grewal
-// Oliver Lingertat
-// Luncy Cheng
-// Navya Mehta
-
+// Anthony Ilersich
+// Evelyn Law
+// Lilian Chen
+// Aaron Kong
 
 import React, { Component } from 'react';
 // import Highcharts from 'highcharts';
 // import HighchartsReact from 'highcharts-react-official';
 // import { Jumbotron } from 'reactstrap';
 
-class Team1 extends Component { 
+class Team2 extends Component { 
   render() {
     return (
-      <div className='container'>Team 1: 
-       </div>
+      <div className='container'>Team 2</div>
     )
   }
 }
-export default Team1;
+
+export default Team2;

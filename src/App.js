@@ -5,16 +5,8 @@ import Nav from './Components/Nav';
 import Footer from './Components/Footer';
 import Home from './Page/Home';
 import Example from './Page/Example';
-import Team1 from './Page/Submission/Team1';
-import Team2 from './Page/Submission/Team2';
-import Team3 from './Page/Submission/Team3';
-import Team4 from './Page/Submission/Team4';
-import Team5 from './Page/Submission/Team5';
-import Team6 from './Page/Submission/Team6';
-import Team7 from './Page/Submission/Team7';
-import Team8 from './Page/Submission/Team8';
-import Team9 from './Page/Submission/Team9';
-import Team10 from './Page/Submission/Team10';
+import {Team1, Team2, Team3, Team4, Team5, Team6, Team7, Team8, Team9, Team10} from './Page/Submission';
+
 class App extends Component {
   render() {
     return (
