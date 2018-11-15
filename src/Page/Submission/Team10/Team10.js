@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 class Team10 extends Component { 
   render() {
     return (
-      <div className='container'>Team 9</div>
+      <div className='container'>Team 10</div>
     )
   }
 }
