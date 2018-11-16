@@ -58,6 +58,17 @@ class Home extends Component {
         </Jumbotron>
         <Jumbotron fluid>
           <Container fluid>
+            <h2 className="display-3">Tips</h2>
+            <ListGroup>
+              <ListGroupItem color="info">Sketch out what you want to build (e.g. look of the page, design, etc.)</ListGroupItem>
+              <ListGroupItem color="info">Think of how you want to analyze list of stocks (e.g. look at average daily return of stock, sharpe ratio, x-days moving average, etc.) </ListGroupItem>
+              <ListGroupItem color="info">Think of how you want to implement the project (e.g. components design, functions design, styling of project, etc.) </ListGroupItem>
+              <ListGroupItem color="info">Split up the work (e.g. one can calculate return of stock, one can do frontend design, etc.)</ListGroupItem>
+            </ListGroup>
+          </Container>
+        </Jumbotron>
+        <Jumbotron fluid>
+          <Container fluid>
             <h2 className="display-3">Awards</h2>
             <p>Categories: Best Coding Style, Best Web Design, Best Portfolio Return</p>
             <p>Judges: CFM mentors and staffs</p>
