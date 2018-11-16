@@ -22,7 +22,7 @@ class Home extends Component {
         <Jumbotron fluid>
           <Container fluid>
             <h2 className="display-3">Important Info</h2>
-            <p>Submission Deadline: 10:00am on November 19, 2018 (Open a pull request on Github!)</p>
+            <p>Submission Deadline: 10:00pm on November 21, 2018 (Open a pull request on Github!)</p>
             <p>Theme: <i class="em em-chart_with_downwards_trend"></i> Portfolio Analytics <i class="em em-chart_with_upwards_trend"></i></p>
             <p>Detail: In this hackathon, each group will develop a frontend application using ReactJS. A <a href="https://raw.githubusercontent.com/uwcfm/CFM-HACK-2018/master/src/Data/stocks.json">stock json file</a> will be provided (already in the repository). The file consists of the one year TSX60 stocks data. Based on the data, pick 5 stocks to build an equally-weighted portfolio.</p>
             <p>Key Assumptions: 3.2% risk free rate, 365 days in a year</p>
