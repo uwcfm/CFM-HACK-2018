@@ -4,7 +4,7 @@
 // Navya Mehta
 
 import React, { Component } from 'react';
-import StockStats from '../Data/stocks';
+import StockStats from '../../../Data/stocks';
 import Alg from './Algorithm'
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
@@ -13,7 +13,7 @@ import { Jumbotron } from 'reactstrap';
 class Team1 extends Component {
   constructor(props) {
     super(props);
-      this.state = { sma: Alg.ema19() }
+      this.state = {Alg.state.fullray};
   }
   render() {
     return (

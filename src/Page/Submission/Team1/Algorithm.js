@@ -14,13 +14,15 @@ class stockobj extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      closeval: StockStats.map(function(x){
+      fullray: [StockStats.map(function(x){
         x.map(function(day) {return day.Close})
-      })
+      }), [], []]
     };
   }
   sma19() {
-    let closearr = this.state.closeval;
+    let fullarr = this.state.fullray;
+    let closearr = fullarr[0];
+    let curema = fullarr[2];
     let sma = closearr.map(function(stock) {
       let temparr = stock;
       for (var i=0; i<19; i++)
@@ -38,12 +40,13 @@ class stockobj extends Component {
       }
       return temparr;
     });
-    return sma;
+    this.setState({fullray: [closearr, sma, curema]});
   }
   ema19() {
     let expmul = 0.1;
-    let sma = sma19();
-    let closearr = this.state.closeval;
+    let fullarr = this.state.fullray;
+    let sma = fullarr[1];
+    let closearr = fullarr[0];
     let ema = closearr.map(function(stock) {
       let tempema = stock;
       for (var i=0; i<19; i++)
@@ -57,7 +60,7 @@ class stockobj extends Component {
       }
       return tempema;
     });
-    return ema;
+    this.setState({fullray: [closearr, sma, ema]});
   }
 }
 export default stockobj;
