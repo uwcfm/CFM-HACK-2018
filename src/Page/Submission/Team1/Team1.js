@@ -4,14 +4,20 @@
 // Navya Mehta
 
 import React, { Component } from 'react';
-// import Highcharts from 'highcharts';
-// import HighchartsReact from 'highcharts-react-official';
-// import { Jumbotron } from 'reactstrap';
+import StockStats from '../Data/stocks';
+import Alg from './Algorithm'
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
+import { Jumbotron } from 'reactstrap';
 
-class Team1 extends Component { 
+class Team1 extends Component {
+  constructor(props) {
+    super(props);
+      this.state = { sma: Alg.ema19() }
+  }
   render() {
     return (
-      <div className='container'>Team 1</div>
+      <div className='container'>Team 1 hello world</div>
     )
   }
 }
