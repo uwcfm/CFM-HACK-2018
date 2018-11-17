@@ -9,7 +9,7 @@ class Home extends Component {
   render() {
     return (
       <div className='container'>
-        <h2 className="display-4">estelle</h2>
+        <h2 className="display-4">Phoebe</h2>
         <Jumbotron fluid>
           <Container fluid>
             <h1 className="display-3">Kickoff</h1>
