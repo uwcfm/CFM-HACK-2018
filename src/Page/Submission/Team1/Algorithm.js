@@ -58,5 +58,4 @@ class stockobj extends Component {
     return ema;
   }
 }
-
 export default stockobj;
