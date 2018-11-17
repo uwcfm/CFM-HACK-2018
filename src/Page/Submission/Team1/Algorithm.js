@@ -42,6 +42,7 @@ class stockobj extends Component {
   }
   ema19() {
     let expmul = 0.1;
+    let sma = sma19();
     let closearr = this.state.closeval;
     let ema = closearr.map(function(stock) {
       let tempema = stock;
@@ -49,6 +50,7 @@ class stockobj extends Component {
       {
         tempema[i] = 0;
       }
+
       for (var i=20; i<365; i++)
       {
         tempema[i] = expmul * (tempema[i]-tempema[i-1]) + tempema[i-1];
