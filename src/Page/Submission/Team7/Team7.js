@@ -11,7 +11,7 @@ import React, { Component } from 'react';
 class Team7 extends Component { 
   render() {
     return (
-      <div className='container'>Team 7</div>
+      <div className='container'>Team 7 hhello world</div>
     )
   }
 }
