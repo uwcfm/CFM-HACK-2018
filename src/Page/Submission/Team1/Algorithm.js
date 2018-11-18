@@ -5,17 +5,16 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import StockStats from '../../../Data/stocks';
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import { Jumbotron } from 'reactstrap';
 
 
 class stockobj extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullray: [Object.keys(StockStats), StockStats.map(function(x){
-        x.map(function(day) {return day.Close})
+      fullray: [Object.keys(StockStats), StockStats.map(function(x) {
+        return x.map(function(day) {
+          return day.Close;
+        });
       })]
     };
   }
