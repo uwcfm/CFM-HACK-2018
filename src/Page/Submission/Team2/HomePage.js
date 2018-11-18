@@ -24,16 +24,21 @@ class HomePage extends Component {
 						get the point </p>
 				</div>
 				<div className="summary">
-					<h1> Title - Summary </h1>
+					<h1> TITLE-SUMMARY </h1>
 					<div id="company1">
+						<h2> NAME 1 </h2>
 					</div>
 					<div id="company2">
+						<h2> NAME 2 </h2>
 					</div>
 					<div id="company3">
+						<h2> NAME 3 </h2>
 					</div>
 					<div id="company4">
+						<h2> NAME 4 </h2>
 					</div>
 					<div id="company5">
+						<h2> NAME 5 </h2>
 					</div>
 				</div>
 			</div>

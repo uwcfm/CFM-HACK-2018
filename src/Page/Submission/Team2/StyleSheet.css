@@ -5,9 +5,10 @@
 }
 
 #main .flex-container {
-	//position: -webkit-sticky; /* Safari */
-	//position: sticky;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
 	top: 0;
+	z-index: 1;
 }
 
 .flex-container * {
@@ -68,9 +69,9 @@
 
 /*the paragraph about us*/
 #blurb  {
-	font-family: Calibri Light; 
+	font-family: Calibri Light;
 	font-style: italic;
-	font-size: 20px;
+	font-size: 22px;
 	padding-top: 10px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -92,7 +93,60 @@
 	z-index:-2;
 }
 
+@font-face {
+	font-family: Julius Sans One; 
+	src: url(Fonts/JuliusSansOne-Regular.ttf);
+}
 
+/* summary stuff */
+.summary h1 {
+	font-family: Calibri Light;
+	font-size: 35px;
+	padding: 60px;
+	width: 1110px;
+	text-align: center;
+	color: #00246d;
+	color: white;
+	letter-spacing: 2px;
+}
+
+.summary {
+	background: linear-gradient(to bottom, #003366 0%, #001a33 45%);
+	font-family: Calibri Light;
+	color: white;
+	position: relative;
+	height: 900px;
+}
+
+#company1 {
+	position: absolute;
+	top: 400px;
+	left: 100px;	
+}
+
+#company3 {
+	position: absolute;
+	top: 400px;
+	right: 100px;
+}
+
+#company2 {
+	position: absolute;
+	top: 400px;
+	right: 500px;
+}
+
+#company4 {
+	position: absolute;
+	top: 700px;
+	left: 250px;
+}
+
+#company5 {
+	position: absolute;
+	top: 700px;
+	right: 250px;
+}
 
 p {
 	font-size: 18px;
