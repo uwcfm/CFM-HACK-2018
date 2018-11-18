@@ -7,54 +7,81 @@
 .flex-container * {
 	display: block;
 	margin: 0px;
-	padding: 21px;
+	padding: 15px;
 	vertical-align: middle;
 }
 
-.flex-container a {
+.flex-container button {
+	background-color: #336699;
+	opacity: 0.8;
+	color: white;
 	text-align: center;
-	border: 1px solid black;
-	border-left: none;
+	transition: background-color 1s;
+	min-width: 200px;
+	border: 0px;
 }
 
+.flex-container button:hover {
+	background-color: #79a6d2;
+	opacity: 0.4;
+}
+
+/*this is the delta stuff*/
 .flex-container h1 {
-	background-color: grey;
+	background-color: #336699;
 	width: 100%;
-	border: 1px solid black;
-	font-family: Calibri Light; 
-	font-size: 25px;
+	opacity: 0.8;
+	padding-left: 130px;
+//	border: 1px solid white;
+	font-family: Times New Roman; 
+	font-size: 30px;
 	color: white;
 }
 
 #main {
-	background-color: lightgray;
 	width: 100%;
 	position: -webkit-sticky; /* Safari */
     position: sticky;
 	top: 0;
 }
 
-#blurb {
-	height:400px;
-	width:300px;
-	opacity:0.6;
-	
-} 
+/* the blue container background */
 #background {
-	
+	height:400px;
+	width:350px;
+	background-color: #003366;
+	opacity:0.6;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+}
+
+/*the paragraph about us*/
+#blurb  {
+	font-family: Calibri Light; 
+	font-style: italic;
+	font-size: 20px;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	color: white;
+	text-align: justify;
+	height: 400px;
+	width: 350px;
+//	text-shadow: 2px 1px black;
+//	background-color: yellow;
 }
 
 #container {
 	background-image: url("skyscraper.jpg");
 	height:400px;
-	width:1100px;
+	width:87.9%;
 	position: absolute;
-	
-	z-index:-1;
+	z-index:-2;
 }
 
-h1 {
-	font-family: Calibri Light; 
-	font-style: italic;
-	font-size: 2px;
+p {
+	font-size: 18px;
 }
