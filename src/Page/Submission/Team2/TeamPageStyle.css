@@ -1,0 +1,19 @@
+.flex-container-tab {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+    .flex-container-tab h3 {
+        background-color: #336699;
+        width: 50%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-family: Calibri Light;
+        font-size: 25px;
+        color: white;
+    }
+
