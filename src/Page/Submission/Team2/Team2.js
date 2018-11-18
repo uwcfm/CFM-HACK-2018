@@ -71,6 +71,7 @@ class Team2 extends Component {
 			case 0: return (<HomePage />);
 			case 1: return (<MethodPage />);
 			case 2: return (<TeamPage />);
+			default: return (<HomePage />);
 		}
 	}
 
@@ -84,10 +85,10 @@ class Team2 extends Component {
 					<button id="homePageLink" onClick={this.showHome}>
 						Home
 					</button>
-					<button href="#null" id="methodPageLink" onClick={this.showMethod}>
+					<button id="methodPageLink" onClick={this.showMethod}>
 						Our&nbsp;Method
 					</button>
-					<button href="#null" id="teamPageLink" onClick={this.showTeam}>
+					<button id="teamPageLink" onClick={this.showTeam}>
 						Our&nbsp;Team
 					</button>
 				</div>
