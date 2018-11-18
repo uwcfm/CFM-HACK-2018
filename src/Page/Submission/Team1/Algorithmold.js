@@ -16,22 +16,22 @@ class stockobj extends Component {
     this.state = {
       fullray: [Object.keys(StockStats), StockStats.map(function(x){
         x.map(function(day) {return day.Close})
-      })]
+      }), [], []]
     };
   }
   sma19() {
     let fullarr = this.state.fullray;
     let closearr = fullarr[1];
-    var sma = closearr.map(function(stock) {
+    let sma = closearr.map(function(stock) {
       let temparr = stock;
-      for (let i=0; i<19; i++)
+      for (var i=0; i<19; i++)
       {
         temparr[i] = 0;
       }
-      for (let i=19; i < 365; i++)
+      for (var i=19; i < 365; i++)
       {
         let temp = 0;
-        for (let j = i-19; j<i; j++)
+        for (var j = i-19; j<i; j++)
         {
           temp = temp + stock[j];
         }
@@ -39,94 +39,51 @@ class stockobj extends Component {
       }
       return temparr;
     });
-    return sma;
+    this.setState({fullray: [fullarr[0], closearr, sma, fullarr[3]]});
   }
   ema19() {
     let expmul = 0.1;
     let fullarr = this.state.fullray;
+    let sma = fullarr[2];
     let closearr = fullarr[1];
     let ema = closearr.map(function(stock) {
       let tempema = stock;
       let temp = 0;
-      for (let i=0; i<19; i++)
+      for (var i=0; i<19; i++)
       {
         temp = temp + tempema[i];
         tempema[i] = 0;
       }
       tempema[19] = temp / 19;
-      for (let i=20; i<365; i++)
+      for (var i=20; i<365; i++)
       {
         tempema[i] = expmul * (tempema[i]-tempema[i-1]) + tempema[i-1];
       }
       return tempema;
     });
-    return ema;
+    this.setState({fullray: [fullarr[0], closearr, sma, ema]});
   }
   ema39() {
     let expmul = 0.05;
     let fullarr = this.state.fullray;
+    let sma = fullarr[2];
     let closearr = fullarr[1];
     let ema = closearr.map(function(stock) {
       let tempema = stock;
       let temp = 0;
-      for (let i=0; i<39; i++)
+      for (var i=0; i<39; i++)
       {
         temp = temp + tempema[i];
         tempema[i] = 0;
       }
       tempema[39] = temp / 39;
-      for (let i=40; i<365; i++)
+      for (var i=40; i<365; i++)
       {
         tempema[i] = expmul * (tempema[i]-tempema[i-1]) + tempema[i-1];
       }
       return tempema;
     });
-    return ema;
-  }
-  goldencrossval() {
-    let ema19 = this.ema19();
-    let ema39 = this.ema39();
-    let crossval = new Array(60);
-    let impmult = 1;
-
-    for (let i = 0; i<60; i++)
-    {
-      crossval[i] = 0;
-      for (let j = 335; j<365; j++)
-      {
-        crossval[i] = crossval[i] + impmult * (ema19[i][j] - ema39[i][j]);
-        impmult = impmult * 1.03;
-      }
-      impmult = 1;
-    }
-    return crossval;
-  }
-  maabove() {
-    let ema19 = this.ema19();
-    let ema39 = this.ema39();
-    let sma19 = this.sma19();
-    let fullarr = this.state.fullray;
-    let close = fullarr[1];
-    let aboveval = new Array(60);
-    let impmult = 1;
-    for (let i=0; i<60; i++)
-    {
-      aboveval[i] = 0;
-      for (let j=335; j<365; j++)
-      {
-        aboveval[i] = aboveval[i] + impmult *
-        (ema19[i][j] + ema39[i][j] + sma19[i][j] - 3 * close[i][j]);
-        impmult = impmult * 1.03;
-      }
-      impmult = 1;
-    }
-    return aboveval;
-  }
-  emaslope() {
-    //// TODO:
-  }
-  mainalg() {
-    //TODO:
+    this.setState({fullray: [fullarr[0], closearr, sma, ema]});
   }
 }
 export default stockobj;
