@@ -23,7 +23,18 @@ class HomePage extends Component {
 						ahhahahha so rn it's rlly random but we
 						get the point </p>
 				</div>
-				<div id="top5Summary">
+				<div className="summary">
+					<h1> Title - Summary </h1>
+					<div id="company1">
+					</div>
+					<div id="company2">
+					</div>
+					<div id="company3">
+					</div>
+					<div id="company4">
+					</div>
+					<div id="company5">
+					</div>
 				</div>
 			</div>
 		)
