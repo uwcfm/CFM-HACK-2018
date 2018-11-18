@@ -13,12 +13,15 @@ class TeamPage extends Component {
     render() {
         return (
 			<div id="teamPage">
-			<div><h1>OUR TEAM</h1></div>
+            <div id="teamBackground">
+                  </div>
+			<div className='flex-container-tab' >
+                <h1>Meet the Team</h1></div>
                 <div className='flex-container-tab'>
-                <h3>Anthony Ilersich</h3>
-                <h3>Evelyn Law</h3>
-                <h3>Lilian Chen</h3>
-                <h3>Aaron Kong</h3></div>
+                  <h3>Anthony Ilersich</h3>
+                  <h3>Evelyn Law</h3>
+                  <h3>Lilian Chen</h3>
+                  <h3>Aaron Kong</h3></div>
                 <div className='flex-container-tab'>
                     <img src="https://media.licdn.com/dms/image/C4D03AQEB4FgkftyT4w/profile-displayphoto-shrink_800_800/0?e=1548288000&v=beta&t=Um1gb1qGlvt9krAHmIc2OANL23UxJn34igAXu8eOCBY"
                     alt="Tony Ilersich" width="250" height="250" ></img>
@@ -28,7 +31,38 @@ class TeamPage extends Component {
                     alt="Lilian Chen" width="250" height="250" ></img>
                     <img src="https://media.licdn.com/dms/image/C4D03AQHC3yZ96d1dGA/profile-displayphoto-shrink_200_200/0?e=1548288000&v=beta&t=x0FvdAa8KkN2orLChcYNyIvq3Xpb6gqGeXcC_VRipfw"
                     alt="Aaron Kong" width="250" height="250" ></img>
-                        </div>
+                </div>
+                <div className='flex-container-even'>
+                    <div className='left'>
+                    <ul>
+                        <li> Sweater Weather </li>
+                        <li> fax </li>
+                        <li> fax </li>
+                    </ul>
+                    </div>
+                    <div className='left'>
+                     <ul>
+                        <li> What's Lazeez </li>
+                        <li> fax </li>
+                        <li> fax </li>
+                    </ul>
+                    </div>
+                    <div className='left'>
+                     <ul>
+                        <li> Food Sleep Drama </li>
+                        <li> fax </li>
+                        <li> fax </li>
+                    </ul>
+                    </div>
+                    <div className='left'>
+                     <ul>
+                        <li> King Kong Alias </li>
+                        <li> fax </li>
+                        <li> fax </li>
+                    </ul>
+                    </div>
+               
+                </div>
 			</div>
 
 		)
