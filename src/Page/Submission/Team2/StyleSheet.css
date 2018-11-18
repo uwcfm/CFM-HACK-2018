@@ -87,10 +87,12 @@
 	background-image: url("skyscraper.jpg");
 	background-size: cover;
 	height:400px;
-	width:100%;
+	width:1110px;
 	position: absolute;
 	z-index:-2;
 }
+
+
 
 p {
 	font-size: 18px;
