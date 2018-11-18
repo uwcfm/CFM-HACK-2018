@@ -11,37 +11,17 @@ class stockobj extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    keys: Object.keys(StockStats), 
-    close: StockStats.map(function(x) {
+      fullray: [Object.keys(StockStats), StockStats.map(function(x) {
         return x.map(function(day) {
           return day.Close;
         });
-      }),
-    sma19: this.sma19(),
-    ema19: this.ema19(),
-    ema39: this.ema39(),
-    algval: this.mainalg()
+      })]
     };
   }
-
-  render() {
-    return (
-      <Example keys={this.state.keys} 
-               close={this.state.close}
-               sma19={this.state.sma19}
-               ema19={this.state.ema19}
-               ema39={this.state.ema39}
-               algval={this.state.algval}/>
-      )
-  }
-
   sma19() {
-    let closearr = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
-    let sma = closearr.map(function(stock) {
+    let fullarr = this.state.fullray;
+    let closearr = fullarr[1];
+    var sma = closearr.map(function(stock) {
       let temparr = stock;
       for (let i=0; i<19; i++)
       {
@@ -62,11 +42,8 @@ class stockobj extends Component {
   }
   ema19() {
     let expmul = 0.1;
-    let closearr = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
+    let fullarr = this.state.fullray;
+    let closearr = fullarr[1];
     let ema = closearr.map(function(stock) {
       let tempema = stock;
       let temp = 0;
@@ -86,11 +63,8 @@ class stockobj extends Component {
   }
   ema39() {
     let expmul = 0.05;
-    let closearr = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
+    let fullarr = this.state.fullray;
+    let closearr = fullarr[1];
     let ema = closearr.map(function(stock) {
       let tempema = stock;
       let temp = 0;
@@ -130,11 +104,8 @@ class stockobj extends Component {
     let ema19 = this.ema19();
     let ema39 = this.ema39();
     let sma19 = this.sma19();
-    let close = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
+    let fullarr = this.state.fullray;
+    let close = fullarr[1];
     let aboveval = new Array(60);
     let impmult = 1;
     for (let i=0; i<60; i++)
@@ -169,12 +140,18 @@ class stockobj extends Component {
     let slopeval = this.emaslope();
     let crossval = this.goldencrossval();
     let aboveval = this.maabove();
+    let fullarr = this.state.fullray;
+    let keyval = fullarr[0];
+    let closeval = fullarr[1];
+    let ema19 = this.ema19();
+    let sma19 = this.sma19();
+    let ema39 = this.ema39();
     let algval = new Array(60);
     for (let i=0; i<60; i++)
     {
       algval[i] = 0.4 * crossval[i] + 0.3 * aboveval[i] + 0.3 * slopeval[i];
     }
-    var finalvals = [algval, slopeval, crossval, aboveval];
+    var finalvals = [algval, keyval, closeval, sma19, ema19, ema39, slopeval, crossval, aboveval];
     return finalvals;
   }
 }
