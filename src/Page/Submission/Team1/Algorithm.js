@@ -151,7 +151,8 @@ class stockobj extends Component {
     {
       algval[i] = 0.4 * crossval[i] + 0.3 * aboveval[i] + 0.3 * slopeval[i];
     }
-    return [algval, keyval, closeval, sma19, ema19, ema39, slopeval, crossval, aboveval];
+    var finalvals = [algval, keyval, closeval, sma19, ema19, ema39, slopeval, crossval, aboveval];
+    return finalvals;
   }
 }
 export default stockobj;
