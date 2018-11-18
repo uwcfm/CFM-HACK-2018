@@ -4,6 +4,12 @@
 	flex-direction: row;
 }
 
+#main .flex-container {
+	//position: -webkit-sticky; /* Safari */
+	//position: sticky;
+	top: 0;
+}
+
 .flex-container * {
 	display: block;
 	margin: 0px;
@@ -40,9 +46,12 @@
 
 #main {
 	width: 100%;
-	position: -webkit-sticky; /* Safari */
-    position: sticky;
-	top: 0;
+	background-color: ##ff0080;
+}
+
+#homePage {
+	width: 100%;
+	background-color: ##ff0080;
 }
 
 /* the blue container background */
@@ -76,8 +85,9 @@
 
 #container {
 	background-image: url("skyscraper.jpg");
+	background-size: cover;
 	height:400px;
-	width:87.9%;
+	width:100%;
 	position: absolute;
 	z-index:-2;
 }

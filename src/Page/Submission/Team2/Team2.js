@@ -79,8 +79,8 @@ class Team2 extends Component {
 	render() {
 		console.log("render Team2");
 		return (
-			<div>
-				<div id="main" className='flex-container'>
+			<div id="main">
+				<div className='flex-container'>
 					<h1>dELTA</h1>
 					<button id="homePageLink" onClick={this.showHome}>
 						Home
@@ -92,9 +92,7 @@ class Team2 extends Component {
 						Our&nbsp;Team
 					</button>
 				</div>
-				<div id="page">
-					{this.getCurrentPage()}
-				</div>
+				{this.getCurrentPage()}
 			</div>
 		)
 	}
