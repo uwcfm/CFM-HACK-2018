@@ -25,7 +25,7 @@ class Team2 extends Component {
 		
 		//initialize state
 		this.state = {
-			pages: [ HomePage, MethodPage, TeamPage ],
+			pages: [ (<HomePage/>), (<MethodPage/>), (<TeamPage/>) ],
 			current: 0
 		};
 		
@@ -67,15 +67,10 @@ class Team2 extends Component {
 	
 	//used to render the correct page
 	getCurrentPage() {
-		//return React.createElement(this.state.pages[this.current]);
-		if (this.state.current === 0) {
-			return (<HomePage />);
-		}
-		else if (this.state.current === 1) {
-			return (<MethodPage />);
-		}
-		else if (this.state.current === 2) {
-			return (<TeamPage />);
+		switch (this.state.current) {
+			case 0: return (<HomePage />);
+			case 1: return (<MethodPage />);
+			case 2: return (<TeamPage />);
 		}
 	}
 
@@ -85,7 +80,7 @@ class Team2 extends Component {
 		return (
 			<div>
 				<div id="main" className='flex-container'>
-					<h1>Team 2</h1>
+					<h1>dELTA</h1>
 					<button id="homePageLink" onClick={this.showHome}>
 						Home
 					</button>
