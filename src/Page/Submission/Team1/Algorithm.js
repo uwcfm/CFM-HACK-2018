@@ -123,10 +123,36 @@ class stockobj extends Component {
     return aboveval;
   }
   emaslope() {
-    //// TODO:
+    let ema19 = this.ema19();
+    let sloper = ema19.map(function(stock){
+      let tempslope = 0;
+      let impmult = 1;
+      for (let i = 335; i<365; i++)
+      {
+        tempslope = tempslope + impmult * (stock[i]-stock[i-1]);
+        impmult = impmult * 1.03;
+      }
+      tempslope = tempslope / 30;
+      return tempslope;
+    });
+    return sloper;
   }
   mainalg() {
-    //TODO:
+    let slopeval = this.emaslope();
+    let crossval = this.goldencrossval();
+    let aboveval = this.maabove();
+    let fullarr = this.state.fullray;
+    let keyval = fullarr[0];
+    let closeval = fullarr[1];
+    let ema19 = this.ema19();
+    let sma19 = this.sma19();
+    let ema39 = this.ema39();
+    let algval = new Array(60);
+    for (let i=0; i<60; i++)
+    {
+      algval[i] = 0.4 * crossval[i] + 0.3 * aboveval[i] + 0.3 * slopeval[i];
+    }
+    return [algval, keyval, closeval, sma19, ema19, ema39, slopeval, crossval, aboveval];
   }
 }
 export default stockobj;
