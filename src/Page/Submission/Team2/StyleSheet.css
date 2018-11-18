@@ -7,7 +7,7 @@
 .flex-container * {
 	display: block;
 	margin: 0px;
-	padding: 10px;
+	padding: 21px;
 	vertical-align: middle;
 }
 
@@ -18,18 +18,42 @@
 }
 
 .flex-container h1 {
-	background-color: red;
+	background-color: grey;
 	width: 100%;
 	border: 1px solid black;
+	font-family: Calibri Light; 
+	font-size: 25px;
+	color: white;
 }
 
 #main {
 	background-color: lightgray;
 	width: 100%;
+	position: -webkit-sticky; /* Safari */
+    position: sticky;
+	top: 0;
 }
 
-vr {
-	color: black;
-	background-color: black;
+#blurb {
+	height:400px;
+	width:300px;
+	opacity:0.6;
+} 
+#background {
+	
 }
 
+#container {
+	background-image: url("skyscraper.jpg");
+	height:400px;
+	width:1100px;
+	position: absolute;
+	
+	z-index:-1;
+}
+
+h1 {
+	font-family: Calibri Light; 
+	font-style: italic;
+	font-size: 2px;
+}
