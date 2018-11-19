@@ -5,7 +5,6 @@
 
 import React, { Component } from 'react';
 import StockStats from '../../../Data/stocks';
-import Alg from './Algorithm'
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { Jumbotron } from 'reactstrap';
