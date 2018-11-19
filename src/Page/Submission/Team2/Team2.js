@@ -47,7 +47,6 @@ class Team2 extends Component {
 		var temp = this.state;
 		temp.current = (i % L + L) % L;
 		this.setState(temp);
-		console.log("hi");
 	}
 	
 	//navigate to the home page
@@ -77,7 +76,6 @@ class Team2 extends Component {
 
 	//main render method
 	render() {
-		console.log("render Team2");
 		return (
 			<div id="main">
 				<div className='flex-container'>
