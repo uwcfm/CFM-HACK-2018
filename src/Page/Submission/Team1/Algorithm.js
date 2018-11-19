@@ -179,4 +179,5 @@ class stockobj extends Component {
     return finalvals;
   }
 }
+
 export default stockobj;
