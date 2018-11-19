@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import StockStats from '../../../Data/stocks';
+import { Example } from './Team1';
 
 
 class stockobj extends Component {
