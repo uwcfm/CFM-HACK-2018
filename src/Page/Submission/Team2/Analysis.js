@@ -3,6 +3,8 @@
 // Lilian Chen
 // Aaron Kong
 
+const riskFreeRate = .032;
+
 //read in stock json
 var data = require("C:/Users/Tony/CFM-HACK-2018/src/Data/stocks.json");
 
@@ -30,7 +32,7 @@ function SMA(dataset, n) {
 	for (var i = 0; i < dataset.length; i++) {
 		var sum = 0, m = 0;
 		for (var j = Math.max(i - n + 1, 0); j <= i; j++) {
-			sum += dataset[i];
+			sum += dataset[j];
 			m++;
 		}
 		result.push(sum / m);
@@ -54,11 +56,12 @@ function EMA(dataset, n) {
 	return result;
 }
 
-//generates an array of daily highs for a given stock
-function getHighs(stock) {
-	var highs = [];
+//generates an array of values of a particular property of a stock over the dataset
+function getValues(stock, propKey) {
+	var values = [];
 	for (var i = 0; i < stock.length; i++) {
-		highs.push(stock[i].High);
+
+		values.push(stock[i][propKey]);
 	}
-	return highs;
+	return values;
 }
