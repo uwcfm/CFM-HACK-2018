@@ -10,8 +10,35 @@ import HighchartsReact from 'highcharts-react-official';
 import { Jumbotron,Button } from 'reactstrap';
 import "./style.css";
 
+var optionsPie = {
+  chart: {
+      plotBackgroundColor: null,
+      plotBorderWidth: null,
+      plotShadow: false,
+      type: 'pie'
+    },
+    title: {
+      text: 'Percentage of Portfolio'
+    },
+    tooltip: {
+      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+          style: {
+            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+          }
+        }
+      }
+    }
+}
 
-var options = {
+var optionsLine = {
   chart: {
           zoomType: 'x'
         },
@@ -100,9 +127,29 @@ constructor(props) {
 };
 
   render() {
-    options['series'] = [{
+    optionsLine['series'] = [{
         type: 'area',
         data: this.getClose("ABX.TO")
+    }];
+    optionsPie['series'] = [{
+      name: 'Brands',
+          colorByPoint: true,
+          data: [{
+            name: 'Label1',
+            y: 61.41
+          }, {
+            name: 'Label2',
+            y: 18.89
+          }, {
+            name: 'Label3',
+            y: 10.85
+          }, {
+            name: 'Label4',
+            y: 4.67
+          }, {
+            name: 'Label5',
+            y: 4.18
+          }]
     }];
     return (
     <div className='container'>
@@ -207,11 +254,15 @@ constructor(props) {
             <h2>Example: NBA </h2>
             <HighchartsReact
               highcharts={Highcharts}
-              options={options}
+              options={optionsLine}
             />
             <HighchartsReact
               highcharts={Highcharts}
-              options={options}
+              options={optionsLine}
+            />
+            <HighchartsReact
+              highcharts={Highcharts}
+              options={optionsPie}
             />
             Reference:
             <a href="https://api.highcharts.com/highcharts/series.scatter">Highcharts API</a>
