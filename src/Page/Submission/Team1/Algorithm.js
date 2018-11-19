@@ -5,7 +5,7 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import StockStats from '../../../Data/stocks';
-import { Example } from './Team1';
+import { Team1 } from './Team1';
 
 
 class stockobj extends Component {
@@ -27,7 +27,7 @@ class stockobj extends Component {
 
   render() {
     return (
-      <Example keys={this.state.keys} 
+      <Team1   keys={this.state.keys} 
                close={this.state.close}
                sma19={this.state.sma19}
                ema19={this.state.ema19}

@@ -63,6 +63,18 @@ var options = {
 
 
 class Team1 extends Component {
+
+constructor(props) {
+    super(props);
+    this.state = {
+      keys: this.props.keys,
+      close: this.props.close,
+      sma19: this.props.sma19,
+      ema19: this.props.ema19,
+      ema39: this.props.ema39,
+      algval: this.props.algval
+    };
+  }
   
  getClose(stockName) {
   var closeArray = [];
