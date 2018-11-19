@@ -3,19 +3,21 @@
 // Lilian Chen
 // Aaron Kong
 
+//read in stock json
 var data = require("C:/Users/Tony/CFM-HACK-2018/src/Data/stocks.json");
 
+//constructor for Analysis class, 
 function Analysis() {
 	
+	//used to record calculated values
 	this.stats = {};
 	
+	//call to begin analysis of stocks
 	this.run = function() {
 		
-		console.log("reading " + Object.keys(data).length + " stocks");
-		
+		//iterate through stocks
 		for (var key in data) {
-			console.log(key + ": " + SMA(getHighs(data[key]), 20));
-			console.log(key + ": " + EMA(getHighs(data[key]), 20));
+			//TODO process each stock, write into this.stats
 		}
 	}
 }
