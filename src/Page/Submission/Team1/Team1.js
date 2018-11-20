@@ -101,208 +101,78 @@ function show_image(src, width, height, alt) {
 
 class Team1 extends Component {
 
-constructor(props) {
-    super(props);
-    this.state = {
-    keys: Object.keys(StockStats),
-    dates: this.getdates(),
-    closeVal: this.getcloses(),
-    sma19: this.sma19(),
-    ema19: this.ema19(),
-    ema39: this.ema39(),
-    algval: this.mainalg()
-    };
-  }
-
-  jsontoarray() {
-    var keysarr = Object.keys(StockStats);
-    var stockarr = [];
-    keysarr.forEach(function(key) {
-      stockarr.push(StockStats[key]);
-    });
-    return stockarr;
-  }
-
-  getdates() {
-    var stockarr = this.jsontoarray();
-    var datesarr = stockarr.map(function(x) {
-      return x.map(function(day) {
-        let daykey = Object.keys(day);
-        let dayarr = [];
-        daykey.forEach(function(key) {
-          dayarr.push(day[daykey]);
-        })
-        return day[2];
+  getdates(stockName) {
+    var datesArray = [];
+    StockStats[stockName].forEach(
+      (day) => {
+        var obj = Date.parse(day["Date"]);
+        datesArray.push(obj);
       })
-    });
-    return datesarr;
+      return datesArray;
   }
 
-  getcloses() {
-    var stockarr = this.jsontoarray();
-    var closearr = stockarr.map(function(x) {
-      return x.map(function(day) {
-        let daykey = Object.keys(day);
-        let dayarr = [];
-        daykey.forEach(function(key) {
-          dayarr.push(day[daykey]);
-        })
-        return day[1];
+  getcloses(stockName) {
+    var closesArray = [];
+    StockStats[stockName].forEach(
+      (day) => {
+        var obj = day["Close"];
+        closesArray.push(obj);
       })
-    });
-    return closearr;
+      return closesArray;
   }
 
-  sma19() {
-    let closearr = this.getcloses();
-    let sma = closearr.map(function(stock) {
-      let temparr = stock;
-      for (let i=0; i<19; i++)
-      {
-        temparr[i] = 0;
-      }
-      for (let i=19; i < 250; i++)
+  sma19(stockName) {
+    let closearr = this.getcloses(stockName);
+    let sma = [];
+      for (let i=19; i < closearr.length; i++)
       {
         let temp = 0;
         for (let j = i-19; j<i; j++)
         {
-          temp = temp + stock[j];
+          temp = temp + closearr[j];
         }
-        temparr[i] = temp / 19;
+        sma.push(temp / 19);
       }
-      return temparr;
-    });
     return sma;
   }
-
-  ema19() {
-    let expmul = 0.1;
-    let closearr = this.getcloses();
-    let ema = closearr.map(function(stock) {
-      let tempema = stock;
-      let temp = 0;
-      for (let i=0; i<19; i++)
-      {
-        temp = temp + tempema[i];
-        tempema[i] = 0;
+  
+  ema(stockName, period) {//period is the number of days to consider. NOTE: when calling this function to graph it, period should equal shift.
+      let expmul = 2/(period + 1);
+      let closearr = this.getcloses(stockName);
+      
+      let ema = [];
+      let firstperiodclosingsum = 0;
+      for (let i = 0; i<period; i++) {
+        firstperiodclosingsum += closearr[i];
       }
-      tempema[19] = temp / 19;
-      for (let i=20; i<365; i++)
-      {
-        tempema[i] = expmul * (tempema[i]-tempema[i-1]) + tempema[i-1];
+      ema.push(firstperiodclosingsum/period);
+      for (let i=period; i<closearr.length; i++) {//[Closing price-EMA (previous day)] x multiplier + EMA (previous day)
+        ema.push((expmul * (closearr[i]-ema[i-period])) + ema[i-period]);
       }
-      return tempema;
-    });
-    return ema;
-  }
-
-  ema39() {
-    let expmul = 0.05;
-    let closearr = this.getcloses();
-    let ema = closearr.map(function(stock) {
-      let tempema = stock;
-      let temp = 0;
-      for (let i=0; i<39; i++)
-      {
-        temp = temp + tempema[i];
-        tempema[i] = 0;
-      }
-      tempema[39] = temp / 39;
-      for (let i=40; i<365; i++)
-      {
-        tempema[i] = expmul * (tempema[i]-tempema[i-1]) + tempema[i-1];
-      }
-      return tempema;
-    });
-    return ema;
-  }
-
-  goldencrossval() {
-    let ema19 = this.ema19();
-    let ema39 = this.ema39();
-    let crossval = new Array(60);
-    let impmult = 1;
-
-    for (let i = 0; i<60; i++)
-    {
-      crossval[i] = 0;
-      for (let j = 220; j<250; j++)
-      {
-        crossval[i] = crossval[i] + impmult * (ema19[i][j] - ema39[i][j]);
-        impmult = impmult * 1.03;
-      }
-      impmult = 1;
+      return ema;
     }
-    return crossval;
-  }
 
-  maabove() {
-    let ema19 = this.ema19();
-    let ema39 = this.ema39();
-    let sma19 = this.sma19();
-    let close = this.getcloses();
-    let aboveval = new Array(60);
-    let impmult = 1;
-    for (let i=0; i<60; i++)
-    {
-      aboveval[i] = 0;
-      for (let j=335; j<365; j++)
-      {
-        aboveval[i] = aboveval[i] + impmult *
-        (ema19[i][j] + ema39[i][j] + sma19[i][j] - 3 * close[i][j]);
-        impmult = impmult * 1.03;
-      }
-      impmult = 1;
+
+  matchDateAndValues(dates, values, shift) {//organizes two sets of data so they can be graphed against each other, shift is for data that starts after a certain point (for example, set shift = 19 for graphing sma19("sockName"), set shift = 0 for graphing closing values.)
+  var matchedArray = [];
+    for (let i = shift; i < dates.length; i++) {
+      matchedArray.push([
+        dates[i],
+        values[i-shift]
+      ]);
     }
-    return aboveval;
+    return matchedArray;
   }
-
-  emaslope() {
-    let ema19 = this.ema19();
-    let sloper = ema19.map(function(stock){
-      let tempslope = 0;
-      let impmult = 1;
-      for (let i = 335; i<365; i++)
-      {
-        tempslope = tempslope + impmult * (stock[i]-stock[i-1]);
-        impmult = impmult * 1.03;
-      }
-      tempslope = tempslope / 30;
-      return tempslope;
-    });
-    return sloper;
-  }
-
-  mainalg() {
-    let slopeval = this.emaslope();
-    let crossval = this.goldencrossval();
-    let aboveval = this.maabove();
-    let algval = new Array(60);
-    for (let i=0; i<60; i++)
-    {
-      algval[i] = 0.4 * crossval[i] + 0.3 * aboveval[i] + 0.3 * slopeval[i];
-    }
-    var finalvals = [algval, slopeval, crossval, aboveval];
-    return finalvals;
-  }
-
- getClose(stockName) {
-  var closeArray = [];
-  var i;
-  for (i = 0; i < 0; i++) {
-    var obj = [
-      Date.parse(this.state.dates[0][i]),
-      this.state.closeVal[0][i]
-    ];
-    closeArray.push(obj);
-  }
-  return closeArray;
-};
 
   render() {
     optionsLine['series'] = [{
         type: 'area',
-        data: this.getClose("ABX.TO")
+        data: this.matchDateAndValues(this.getdates("ABX.TO"), this.getcloses("ABX.TO"),0)
+    }, {
+        name: 'Installation',
+        data: this.matchDateAndValues(this.getdates("ABX.TO"), this.sma19("ABX.TO"),19)
+    },{
+      data: this.matchDateAndValues(this.getdates("ABX.TO"), this.ema("ABX.TO", 19),19)
     }];
     optionsPie['series'] = [{
       name: 'Brands',
@@ -324,6 +194,7 @@ constructor(props) {
             y: 4.18
           }]
     }];
+    
     return (
     <div className='container'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
