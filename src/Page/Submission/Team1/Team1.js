@@ -177,6 +177,7 @@ class Team1 extends Component {
       impmult = impmult * 1.03;
 
     }
+    crossval = crossval / 22;
     return crossval;
   }
 
@@ -191,8 +192,9 @@ class Team1 extends Component {
     for (let i=lengthval-38-22; i<lengthval-38; i++)
     {
       aboveval += impmult * (sma19[i+20] + ema19[i+20] + ema39[i] - 3 * closearr[i+39]);
-      let impmult = impmult * 1.03;
+      impmult = impmult * 1.03;
     }
+    aboveval = aboveval / 22;
     return aboveval;
   }
 
