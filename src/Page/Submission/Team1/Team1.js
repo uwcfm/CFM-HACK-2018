@@ -104,17 +104,9 @@ class Team1 extends Component {
 constructor(props) {
     super(props);
     this.state = {
-    keys: Object.keys(StockStats), 
-    dates: StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Date;
-        });
-      }),
-    closeVal: StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      }),
+    keys: Object.keys(StockStats),
+    dates: this.getdates(),
+    closeVal: this.getcloses(),
     sma19: this.sma19(),
     ema19: this.ema19(),
     ema39: this.ema39(),
@@ -122,19 +114,54 @@ constructor(props) {
     };
   }
 
+  jsontoarray() {
+    var keysarr = Object.keys(StockStats);
+    var stockarr = [];
+    keysarr.forEach(function(key) {
+      stockarr.push(StockStats[key]);
+    });
+    return stockarr;
+  }
+
+  getdates() {
+    var stockarr = this.jsontoarray();
+    var datesarr = stockarr.map(function(x) {
+      return x.map(function(day) {
+        let daykey = Object.keys(day);
+        let dayarr = [];
+        daykey.forEach(function(key) {
+          dayarr.push(day[daykey]);
+        })
+        return day[2];
+      })
+    });
+    return datesarr;
+  }
+
+  getcloses() {
+    var stockarr = this.jsontoarray();
+    var closearr = stockarr.map(function(x) {
+      return x.map(function(day) {
+        let daykey = Object.keys(day);
+        let dayarr = [];
+        daykey.forEach(function(key) {
+          dayarr.push(day[daykey]);
+        })
+        return day[1];
+      })
+    });
+    return closearr;
+  }
+
   sma19() {
-    let closearr = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
+    let closearr = this.getcloses();
     let sma = closearr.map(function(stock) {
       let temparr = stock;
       for (let i=0; i<19; i++)
       {
         temparr[i] = 0;
       }
-      for (let i=19; i < 365; i++)
+      for (let i=19; i < 250; i++)
       {
         let temp = 0;
         for (let j = i-19; j<i; j++)
@@ -150,11 +177,7 @@ constructor(props) {
 
   ema19() {
     let expmul = 0.1;
-    let closearr = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
+    let closearr = this.getcloses();
     let ema = closearr.map(function(stock) {
       let tempema = stock;
       let temp = 0;
@@ -175,11 +198,7 @@ constructor(props) {
 
   ema39() {
     let expmul = 0.05;
-    let closearr = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
+    let closearr = this.getcloses();
     let ema = closearr.map(function(stock) {
       let tempema = stock;
       let temp = 0;
@@ -207,7 +226,7 @@ constructor(props) {
     for (let i = 0; i<60; i++)
     {
       crossval[i] = 0;
-      for (let j = 335; j<365; j++)
+      for (let j = 220; j<250; j++)
       {
         crossval[i] = crossval[i] + impmult * (ema19[i][j] - ema39[i][j]);
         impmult = impmult * 1.03;
@@ -221,11 +240,7 @@ constructor(props) {
     let ema19 = this.ema19();
     let ema39 = this.ema39();
     let sma19 = this.sma19();
-    let close = StockStats.map(function(x) {
-        return x.map(function(day) {
-          return day.Close;
-        });
-      });
+    let close = this.getcloses();
     let aboveval = new Array(60);
     let impmult = 1;
     for (let i=0; i<60; i++)
@@ -311,101 +326,101 @@ constructor(props) {
     }];
     return (
     <div className='container'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"/>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"/>
-	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"/>
-	<link href="style.css" rel="stylesheet"/>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"/>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"/>
+    <link href="style.css" rel="stylesheet"/>
   <Jumbotron fluid>
       <h1>Welcome to Team 1!</h1>
       <div class='container2-fluid padding'>
-	  	<div class="row padding">
-				<div class="col-lg-4">
-					<div class="card">
-					<div class="container2">
-			            <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB"
-			            class="image card-img-top"></img>
-			            <div class="overlay overlayFade">
-			                <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
-			            </div>
-		       	 	</div>
-						<div class="card-body">
-							<h4 class="card-title">Sherman Grewal</h4>
-							<p class="card-text">Software Developer</p>
-								<div class = "team-social">
-									<a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-									<a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-								</div>
-						</div>
-					</div>
-				</div>
+        <div class="row padding">
+                <div class="col-lg-4">
+                    <div class="card">
+                    <div class="container2">
+                        <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB"
+                        class="image card-img-top"></img>
+                        <div class="overlay overlayFade">
+                            <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Sherman Grewal</h4>
+                            <p class="card-text">Software Developer</p>
+                                <div class = "team-social">
+                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
+                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="col-lg-4">
-					<div class="card" >
-					<div class="container2">
-			            <img src="https://scontent.fyto1-1.fna.fbcdn.net/v/t1.15752-0/p280x280/46480301_560467854377260_1744096265110552576_n.jpg?_nc_cat=105&_nc_ht=scontent.fyto1-1.fna&oh=a37321acbff527f633a83131fe90767b&oe=5C83A6C5" 
+                <div class="col-lg-4">
+                    <div class="card" >
+                    <div class="container2">
+                        <img src="https://scontent.fyto1-1.fna.fbcdn.net/v/t1.15752-0/p280x280/46480301_560467854377260_1744096265110552576_n.jpg?_nc_cat=105&_nc_ht=scontent.fyto1-1.fna&oh=a37321acbff527f633a83131fe90767b&oe=5C83A6C5"
                   class="image card-img-top"></img>
-			            <div class="overlay overlayFade">
-			                <div class="text">As an avid tech enthusiast, voracious reader, and passionate public speaker, Navya has continuously immersed himself in the realm of financial technologies, quantitative trading and econometrics. He believes that data science holds the power to truly shape human behaviour and structure the unstructured: a belief that manifests in his resolute commitment for data-driven financial architecture and high-frequency-trade systems. A foodie by the day and binge-watcher by the night, Navya is knowledgeable about everything Suits and Brooklyn 99 - a raw elemental passion that he brings to the table in his investment endeavours.</div>
-			            </div>
-		       	 	</div>
-						<div class="card-body">
-							<h4 class="card-title">Navya Mehta</h4>
-							<p class="card-text">Software Developer</p>
-								<div class = "team-social">
-									<a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-									<a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-								</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                        <div class="overlay overlayFade">
+                            <div class="text">As an avid tech enthusiast, voracious reader, and passionate public speaker, Navya has continuously immersed himself in the realm of financial technologies, quantitative trading and econometrics. He believes that data science holds the power to truly shape human behaviour and structure the unstructured: a belief that manifests in his resolute commitment for data-driven financial architecture and high-frequency-trade systems. A foodie by the day and binge-watcher by the night, Navya is knowledgeable about everything Suits and Brooklyn 99 - a raw elemental passion that he brings to the table in his investment endeavours.</div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Navya Mehta</h4>
+                            <p class="card-text">Software Developer</p>
+                                <div class = "team-social">
+                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
+                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
       <div class='container2-fluid padding'>
-	  	<div class="row padding">
-				<div class="col-lg-4">
-					<div class="card" >
-					<div class="container2">
-			            <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB" 
-			            class="image card-img-top"></img>
-			            <div class="overlay overlayFade">
-			                <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
-			            </div>
-		       	 	</div>
-						<div class="card-body">
-							<h4 class="card-title">Sherman Grewal</h4>
-							<p class="card-text">First Year Associate</p>
-								<div class = "team-social">
-									<a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-									<a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-								</div>
-						</div>
-					</div>
-				</div>
+        <div class="row padding">
+                <div class="col-lg-4">
+                    <div class="card" >
+                    <div class="container2">
+                        <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB"
+                        class="image card-img-top"></img>
+                        <div class="overlay overlayFade">
+                            <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Sherman Grewal</h4>
+                            <p class="card-text">First Year Associate</p>
+                                <div class = "team-social">
+                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
+                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
 
-				<div class="col-lg-4">
-					<div class="card" >
-					<div class="container2">
-			            <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB" 
-			            class="image card-img-top"></img>
-			            <div class="overlay overlayFade">
-			                <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
-			            </div>
-		       	 	</div>
-						<div class="card-body">
-							<h4 class="card-title">Sherman Grewal</h4>
-							<p class="card-text">First Year Associate</p>
-								<div class = "team-social">
-									<a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-									<a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-								</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+                <div class="col-lg-4">
+                    <div class="card" >
+                    <div class="container2">
+                        <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB"
+                        class="image card-img-top"></img>
+                        <div class="overlay overlayFade">
+                            <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
+                        </div>
+                    </div>
+                        <div class="card-body">
+                            <h4 class="card-title">Sherman Grewal</h4>
+                            <p class="card-text">First Year Associate</p>
+                                <div class = "team-social">
+                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
+                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
   </Jumbotron>
 
 
@@ -427,7 +442,7 @@ constructor(props) {
             />
             Reference:
             <a href="https://api.highcharts.com/highcharts/series.scatter">Highcharts API</a>
-            <a href="https://dynasties.operationsports.com/team-colors.php?sport=nba">Color Link </a>                                                                               
+            <a href="https://dynasties.operationsports.com/team-colors.php?sport=nba">Color Link </a>
           </div>
         </Jumbotron>
       </div>
