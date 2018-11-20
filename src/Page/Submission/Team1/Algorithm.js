@@ -5,8 +5,6 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import StockStats from '../../../Data/stocks';
-import { Team1 } from './Team1';
-
 
 class stockobj extends Component {
   constructor(props) {
@@ -28,17 +26,16 @@ class stockobj extends Component {
     ema39: this.ema39(),
     algval: this.mainalg()
     };
+    this.InitFunction=this.InitFunction.bind(this);
+  }
+
+  InitFunction() {
+    this.props.childHandler(this.state);
   }
 
   render() {
     return (
-      <Team1   keys={this.state.keys} 
-               dates={this.state.dates}
-               closeVal={this.state.closeVal}
-               sma19={this.state.sma19}
-               ema19={this.state.ema19}
-               ema39={this.state.ema39}
-               algval={this.state.algval}/>
+        this.InitFunction
       )
   }
 

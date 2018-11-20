@@ -9,6 +9,7 @@ import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import { Jumbotron,Button } from 'reactstrap';
 import "./style.css";
+import stockobj from './Algorithm.js';
 
 var optionsPie = {
   chart: {
@@ -104,15 +105,28 @@ class Team1 extends Component {
 constructor(props) {
     super(props);
     this.state = {
-      keys: this.props.keys,
-      dates: this.props.dates,
-      closeVal: this.props.close,
-      sma19: this.props.sma19,
-      ema19: this.props.ema19,
-      ema39: this.props.ema39,
-      algval: this.props.algval
+      keys: [],
+      dates: [],
+      closeVal: [],
+      sma19: [],
+      ema19: [],
+      ema39: [],
+      algval: []
     };
   }
+
+childHandler (datafromChild) {
+  this.setState({
+    keys: datafromChild.keys,
+    dates: datafromChild.dates,
+    closeVal: datafromChild.closeVal,
+    sma19: datafromChild.sma19,
+    ema19: datafromChild.ema19,
+    ema39: datafromChild.ema39,
+    algval: datafromChild.algval
+  })
+}
+
   
  getClose(stockName) {
   var closeArray = [];
@@ -153,6 +167,8 @@ constructor(props) {
           }]
     }];
     return (
+    <div>
+      <stockobj childHandler= {this.childHandler.bind(this)} />
     <div className='container'>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"/>
@@ -270,6 +286,7 @@ constructor(props) {
             <a href="https://dynasties.operationsports.com/team-colors.php?sport=nba">Color Link </a>                                                                               
           </div>
         </Jumbotron>
+      </div>
       </div>
     )
   }
