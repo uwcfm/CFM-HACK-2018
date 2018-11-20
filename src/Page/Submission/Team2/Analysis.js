@@ -6,7 +6,7 @@
 const riskFreeRate = .032;
 
 //read in stock json
-var data = require("C:/Users/Tony/CFM-HACK-2018/src/Data/stocks.json");
+var data = require("./../../../Data/stocks.json");
 
 //constructor for Analysis class, 
 function Analysis() {
