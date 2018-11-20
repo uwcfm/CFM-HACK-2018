@@ -166,6 +166,11 @@ hr.light-100 {
     display: inline-block;
 }
 
+.card {
+  transform: translate(50%, 0%);
+}
+
+
 .image {
     display: block;
 }
