@@ -105,7 +105,8 @@ constructor(props) {
     super(props);
     this.state = {
       keys: this.props.keys,
-      close: this.props.close,
+      dates: this.props.dates,
+      closeVal: this.props.close,
       sma19: this.props.sma19,
       ema19: this.props.ema19,
       ema39: this.props.ema39,
@@ -115,15 +116,15 @@ constructor(props) {
   
  getClose(stockName) {
   var closeArray = [];
-  StockStats[stockName].forEach(
-    (day) => {
-      var obj = [
-        Date.parse(day["Date"]),
-        day["Close"]
-      ];
-      closeArray.push(obj);
-    })
-    return closeArray;
+  var i;
+  for (i = 0; i < 0; i++) {
+    var obj = [
+      Date.parse(this.state.dates[0][i]),
+      this.state.closeVal[0][i]
+    ];
+    closeArray.push(obj);
+  }
+  return closeArray;
 };
 
   render() {

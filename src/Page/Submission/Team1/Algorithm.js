@@ -18,7 +18,7 @@ class stockobj extends Component {
           return day.Date;
         });
       }),
-    close: StockStats.map(function(x) {
+    closeVal: StockStats.map(function(x) {
         return x.map(function(day) {
           return day.Close;
         });
@@ -34,7 +34,7 @@ class stockobj extends Component {
     return (
       <Team1   keys={this.state.keys} 
                dates={this.state.dates}
-               close={this.state.close}
+               closeVal={this.state.closeVal}
                sma19={this.state.sma19}
                ema19={this.state.ema19}
                ema39={this.state.ema39}
