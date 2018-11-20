@@ -135,11 +135,11 @@ class Team1 extends Component {
       }
     return sma;
   }
-  
+
   ema(stockName, period) {//period is the number of days to consider. NOTE: when calling this function to graph it, period should equal shift.
       let expmul = 2/(period + 1);
       let closearr = this.getcloses(stockName);
-      
+
       let ema = [];
       let firstperiodclosingsum = 0;
       for (let i = 0; i<period; i++) {
@@ -163,6 +163,60 @@ class Team1 extends Component {
     }
     return matchedArray;
   }
+
+  goldencrossval(stockName) {
+    let ema19 = this.ema(stockName, 19);
+    let ema39 = this.ema(stockName, 39);
+    let closearr = this.getcloses(stockName);
+    let lengthval = closearr.length;
+    let crossval = 0;
+    let impmult = 1;
+    for (let i=lengthval-38-22; i<lengthval-38; i++)
+    {
+      crossval += impmult * (ema19[i+20] - ema39[i]);
+      impmult = impmult * 1.03;
+
+    }
+    return crossval;
+  }
+
+  maabove(stockName) {
+    let ema19 = this.ema(stockName, 19);
+    let ema39 = this.ema(stockName, 39);
+    let sma19 = this.sma19(stockName);
+    let closearr = this.getcloses(stockName);
+    let lengthval = closearr.length;
+    let aboveval = 0;
+    let impmult = 1;
+    for (let i=lengthval-38-22; i<lengthval-38; i++)
+    {
+      aboveval += impmult * (sma19[i+20] + ema19[i+20] + ema39[i] - 3 * closearr[i+39]);
+      let impmult = impmult * 1.03;
+    }
+    return aboveval;
+  }
+
+  emaslope(stockName) {
+    let ema19 = this.ema(stockName, 19);
+    let lengthema = ema19.length;
+    let sloper = 0;
+    let impmult = 1;
+    for (let i=lengthema-22; i< lengthema; i++)
+    {
+      sloper += impmult * (ema19[i]-ema19[i-1]);
+      impmult = impmult * 1.03;
+    }
+    sloper = sloper / 22;
+    return sloper;
+  }
+
+  mainalg(stockName) {
+    let slopeval = this.emaslope(stockName);
+    let crossval = this.goldencrossval(stockName);
+    let aboveval = this.maabove(stockName);
+    let algval = 0.4 * crossval + 0.3 * aboveval + 0.3 * slopeval;
+    return algval;
+    }
 
   render() {
     optionsLine['series'] = [{
@@ -194,7 +248,7 @@ class Team1 extends Component {
             y: 4.18
           }]
     }];
-    
+
     return (
     <div className='container'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
