@@ -232,7 +232,7 @@ class Team1 extends Component {
     let slopeval = this.emaslope(stockName);
     let crossval = this.goldencrossval(stockName);
     let aboveval = this.maabove(stockName);
-    let algval = 0.4 * crossval + 0.3 * aboveval + 0.3 * slopeval;
+    let algval = 0.35 * crossval + 0.45 * aboveval + 0.2 * slopeval;
     return algval;
     }
 
@@ -393,10 +393,6 @@ class Team1 extends Component {
                         <div class="card-body">
                             <h4 class="card-title">Sherman Grewal</h4>
                             <p class="card-text">Software Developer</p>
-                                <div class = "team-social">
-                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-                                </div>
                         </div>
                     </div>
                 </div>
@@ -413,10 +409,6 @@ class Team1 extends Component {
                         <div class="card-body">
                             <h4 class="card-title">Navya Mehta</h4>
                             <p class="card-text">Software Developer</p>
-                                <div class = "team-social">
-                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-                                </div>
                         </div>
                     </div>
                 </div>
@@ -428,19 +420,15 @@ class Team1 extends Component {
                 <div class="col-lg-4">
                     <div class="card" >
                     <div class="container2">
-                        <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB"
+                        <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/40764729_1092848604225011_2272057516563103744_n.jpg?_nc_cat=101&_nc_ht=scontent.fyyz1-1.fna&oh=2865d2945eef4c230b45458d2fbc202d&oe=5CB170F2"
                         class="image card-img-top"></img>
                         <div class="overlay overlayFade">
-                            <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
+                            <div class="text">With his passion for technology and his eagerness to learn, Oliver is excited to be part of CFM. He is looking forward to his co-op terms, during which he plans to explore the wide variety of opportunities available to those well-versed in both finance and computer science. In his free time, Oliver enjoys listening to and playing music; he is keeping up his musical hobbies by playing violin in the university orchestra, and he will be playing in the pit orchestra for a production of Beauty and the Beast next term. Oliver was also on the MEF Funding Council this term and plans to become further involved in MEF activities during the winter term.</div>
                         </div>
                     </div>
                         <div class="card-body">
-                            <h4 class="card-title">Sherman Grewal</h4>
-                            <p class="card-text">First Year Associate</p>
-                                <div class = "team-social">
-                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-                                </div>
+                            <h4 class="card-title">Oliver Lingertat</h4>
+                            <p class="card-text">Software Developer</p>
                         </div>
                     </div>
                 </div>
@@ -457,10 +445,6 @@ class Team1 extends Component {
                         <div class="card-body">
                             <h4 class="card-title">Sherman Grewal</h4>
                             <p class="card-text">First Year Associate</p>
-                                <div class = "team-social">
-                                    <a href="https://www.linkedin.com/in/sherman-grewal/"><i class="fab fa-linkedin"></i></a>
-                                    <a href="mailto:s.grewal@hedgeconference.ca"><i class="fab fa-google"></i></a>
-                                </div>
                         </div>
                     </div>
                 </div>
