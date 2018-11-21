@@ -529,7 +529,7 @@ class Team1 extends Component {
  
        <Jumbotron fluid>
          <div className='container'>
-           <h1>Team Alpha's Recommendation</h1>
+           <h2>Recommendation</h2>
            <table>
            <tr>
              <th> Stock Ticker </th>
