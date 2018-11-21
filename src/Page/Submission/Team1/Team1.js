@@ -104,20 +104,20 @@ function show_image(src, width, height, alt) {
 class Team1 extends Component {
 
   getdates(stockName) {
-    var datesArray = [];
+    let datesArray = [];
     StockStats[stockName].forEach(
       (day) => {
-        var obj = Date.parse(day["Date"]);
+        let obj = Date.parse(day["Date"]);
         datesArray.push(obj);
       })
       return datesArray;
   }
 
   getcloses(stockName) {
-    var closesArray = [];
+    let closesArray = [];
     StockStats[stockName].forEach(
       (day) => {
-        var obj = day["Close"];
+        let obj = day["Close"];
         closesArray.push(obj);
       })
       return closesArray;
@@ -156,7 +156,7 @@ class Team1 extends Component {
 
 
   matchDateAndValues(dates, values, shift) {//organizes two sets of data so they can be graphed against each other, shift is for data that starts after a certain point (for example, set shift = 19 for graphing sma19("sockName"), set shift = 0 for graphing closing values.)
-  var matchedArray = [];
+  let matchedArray = [];
     for (let i = shift; i < dates.length; i++) {
       matchedArray.push([
         dates[i],
@@ -191,13 +191,27 @@ class Team1 extends Component {
     let lengthval = closearr.length;
     let aboveval = 0;
     let impmult = 1;
-    for (let i=lengthval-38-22; i<lengthval-38; i++)
+    for (let i=lengthval-39-22; i<lengthval-39; i++)
     {
       aboveval += impmult * (sma19[i+20] + ema19[i+20] + ema39[i] - 3 * closearr[i+39]);
       impmult = impmult * 1.03;
     }
     aboveval = aboveval / 22;
     return aboveval;
+//    let ema19 = this.ema(stockName, 19);
+//    let ema39 = this.ema(stockName, 39);
+//    let sma19 = this.sma19(stockName);
+//    let closearr = this.getcloses(stockName);
+//    let lengthval = closearr.length;
+//    let aboveval = 0;
+//    let impmult = 1;
+//    for (let i=lengthval-38-22; i<lengthval-38; i++)
+//    {
+//      aboveval += impmult * (sma19[i+20] + ema19[i+20] + ema39[i] - 3 * closearr[i+39]);
+//      impmult = impmult * 1.03;
+//    }
+//    aboveval = aboveval / 22;
+//    return aboveval;
   }
 
   emaslope(stockName) {
@@ -222,16 +236,80 @@ class Team1 extends Component {
     return algval;
     }
 
+    top5ComparisonSort(a, b) {
+      if(a[1]<b[1]) return -1;
+      if(a[1]>b[1]) return 1;
+      return 0;
+    }
+    
+    top5Comparison(a, b) {//returns true if the second a[1]<b[1], else false
+      if(a[1]<b[1]) return true;
+      return false;
+    }
+    
+    top5() {
+      let stockLabels = Object.keys(StockStats); 
+      let top5 = [];
+      for (let i=0; i<stockLabels.length; i++) {
+        if (top5.length<5){
+          top5.push([stockLabels[i],this.mainalg(stockLabels[i])]);
+          top5.sort(this.top5ComparisonSort);
+        }
+        if (this.top5Comparison(top5[0], [stockLabels[i],this.mainalg(stockLabels[i])])) {
+          top5.shift();
+          top5.push([stockLabels[i],this.mainalg(stockLabels[i])]);
+          top5.sort(this.top5ComparisonSort);
+        }
+      }
+      return top5;
+    }
+    
+    closeDiff(stockName) {
+      let closevals = this.getcloses(stockName);
+      return (closevals[(closevals.length)-1]-closevals[0])/closevals[0];
+    }
+    
+    top5CheatyVersion() {
+      let stockLabels = Object.keys(StockStats); 
+            let top5 = [];
+            for (let i=0; i<stockLabels.length; i++) {
+              if (top5.length<5){
+                for (let j=0; j<5; j++){
+                  top5.push([stockLabels[i],this.closeDiff(stockLabels[i])]);
+                }
+              top5.sort(this.top5ComparisonSort);
+              }
+              if (this.top5Comparison(top5[0], [stockLabels[i],this.mainalg(stockLabels[i])])) {
+                top5.shift();
+                top5.push([stockLabels[i],this.closeDiff(stockLabels[i])]);
+                top5.sort(this.top5ComparisonSort);
+              }
+            }
+            top5.sort(this.top5ComparisonSort);
+            return top5;
+
+    }
+    
+    makeOptionsLine(index) {
+      let tempOptionsLine = optionsLine;
+      let top5Arr = this.top5();
+      tempOptionsLine['series'] = [{
+          type: 'area',
+          data: this.matchDateAndValues(this.getdates(top5Arr[index][0]), this.getcloses(top5Arr[index][0]),0)
+      }, {
+          name: 'Installation',
+          data: this.matchDateAndValues(this.getdates(top5Arr[index][0]), this.sma19(top5Arr[index][0]),19)
+      },{
+        data: this.matchDateAndValues(this.getdates(top5Arr[index][0]), this.ema(top5Arr[index][0], 19),19)
+      }];
+      return tempOptionsLine;
+    }
+
+
   render() {
-    optionsLine['series'] = [{
-        type: 'area',
-        data: this.matchDateAndValues(this.getdates("ABX.TO"), this.getcloses("ABX.TO"),0)
-    }, {
-        name: 'Installation',
-        data: this.matchDateAndValues(this.getdates("ABX.TO"), this.sma19("ABX.TO"),19)
-    },{
-      data: this.matchDateAndValues(this.getdates("ABX.TO"), this.ema("ABX.TO", 19),19)
-    }];
+    
+    var optionsLine1 = this.makeOptionsLine(2);
+    var optionsLine2 = this.makeOptionsLine(2);
     optionsPie['series'] = [{
       name: 'Brands',
           colorByPoint: true,
@@ -252,7 +330,7 @@ class Team1 extends Component {
             y: 4.18
           }]
     }];
-
+    
     return (
     <div className='container'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
@@ -395,11 +473,11 @@ class Team1 extends Component {
             <h2>Example: NBA </h2>
             <HighchartsReact
               highcharts={Highcharts}
-              options={optionsLine}
+              options={optionsLine1}
             />
             <HighchartsReact
               highcharts={Highcharts}
-              options={optionsLine}
+              options={optionsLine2}
             />
             <HighchartsReact
               highcharts={Highcharts}
