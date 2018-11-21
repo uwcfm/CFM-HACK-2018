@@ -529,6 +529,13 @@ class Team1 extends Component {
             </div>
         </div>
         </Jumbotron>
+        
+        <div className='container'>
+        <h2>Recommendation</h2>
+        <p>
+        Two Alpha's top 5 chosen stocks are {top5Arr[4][0]}, {top5Arr[3][0]}, {top5Arr[2][0]}, {top5Arr[1][0]}, and {top5Arr[0][0]}.
+        </p>
+        </div>
 
         <Jumbotron fluid>
           <div className='container'>
