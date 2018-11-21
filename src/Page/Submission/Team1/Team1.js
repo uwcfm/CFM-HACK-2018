@@ -290,26 +290,83 @@ class Team1 extends Component {
 
     }
     
-    makeOptionsLine(index) {
-      let tempOptionsLine = optionsLine;
+    makeOptionsLineArr() {
+      let optionsLineArr = [];
       let top5Arr = this.top5();
-      tempOptionsLine['series'] = [{
-          type: 'area',
-          data: this.matchDateAndValues(this.getdates(top5Arr[index][0]), this.getcloses(top5Arr[index][0]),0)
-      }, {
-          name: 'Installation',
-          data: this.matchDateAndValues(this.getdates(top5Arr[index][0]), this.sma19(top5Arr[index][0]),19)
-      },{
-        data: this.matchDateAndValues(this.getdates(top5Arr[index][0]), this.ema(top5Arr[index][0], 19),19)
-      }];
-      return tempOptionsLine;
+      for (let i=0; i<5; i++) {
+        let tempOptions = {
+          chart: {
+                  zoomType: 'x'
+                },
+                title: {
+                  text: top5Arr[i][0]
+                },
+                subtitle: {
+                  text: document.ontouchstart === undefined ?
+                      'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in'
+                },
+                xAxis: {
+                  type: 'datetime'
+                },
+                yAxis: {
+                  title: {
+                    text: 'Stock Price'
+                  }
+                },
+                legend: {
+                  enabled: false
+                },
+                plotOptions: {
+                  area: {
+                    fillColor: {
+                      linearGradient: {
+                        x1: 0,
+                        y1: 0,
+                        x2: 0,
+                        y2: 1
+                      },
+                      stops: [
+                        [0, Highcharts.getOptions().colors[0]],
+                        [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                      ]
+                    },
+                    marker: {
+                      radius: 2
+                    },
+                    lineWidth: 1,
+                    states: {
+                      hover: {
+                        lineWidth: 1
+                      }
+                    },
+                    threshold: null
+                  }
+                },
+                series: [{
+                                  type: 'area',
+                                  data: this.matchDateAndValues(this.getdates(top5Arr[i][0]), this.getcloses(top5Arr[i][0]),0)
+                              }, {
+                                  name: 'Simple Moving Average, 19-day period',
+                                  data: this.matchDateAndValues(this.getdates(top5Arr[i][0]), this.sma19(top5Arr[i][0]),19)
+                              },{
+                                name: 'Exponential Moving Average, 19-day period',
+                                data: this.matchDateAndValues(this.getdates(top5Arr[i][0]), this.ema(top5Arr[i][0], 19),19)
+                              }]
+                
+        }
+        optionsLineArr.push(tempOptions);
+      }
+      return optionsLineArr;
     }
 
 
   render() {
     
-    var optionsLine1 = this.makeOptionsLine(2);
-    var optionsLine2 = this.makeOptionsLine(2);
+    let top5Arr = this.top5();
+    var optionsLineArr = this.makeOptionsLineArr();
+    for (let i=0; i<5; i++){
+      console.log(top5Arr[i]);
+    }
     optionsPie['series'] = [{
       name: 'Brands',
           colorByPoint: true,
@@ -457,11 +514,23 @@ class Team1 extends Component {
             <h2>Example: NBA </h2>
             <HighchartsReact
               highcharts={Highcharts}
-              options={optionsLine1}
+              options={optionsLineArr[4]}
             />
             <HighchartsReact
               highcharts={Highcharts}
-              options={optionsLine2}
+              options={optionsLineArr[3]}
+            />
+            <HighchartsReact
+              highcharts={Highcharts}
+              options={optionsLineArr[2]}
+            />
+            <HighchartsReact
+              highcharts={Highcharts}
+              options={optionsLineArr[1]}
+            />
+            <HighchartsReact
+              highcharts={Highcharts}
+              options={optionsLineArr[0]}
             />
             <HighchartsReact
               highcharts={Highcharts}
