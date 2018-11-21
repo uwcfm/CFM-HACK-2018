@@ -379,6 +379,14 @@ class Team1 extends Component {
       return distArr;
     }
  
+ roundoff(Port) {
+    let temp = Port;
+    for (let i=0; i<Port.length; i++)
+    {
+      temp[i] = (Math.round(temp[i] * 100));
+    }
+    return temp;
+ }
  
   render() {
    
@@ -388,6 +396,7 @@ class Team1 extends Component {
       console.log(top5Arr[i]);
     }
     let portfolioDistributionArr = this.getPortfolioDistributionArr(top5Arr);
+    let rounded = this.roundoff(portfolioDistributionArr);
     optionsPie['series'] = [{
       name: 'Stock',
           colorByPoint: true,
@@ -529,31 +538,43 @@ class Team1 extends Component {
  
        <Jumbotron fluid>
          <div className='container'>
+           <h2>Vision: Investment Strategy</h2>
+           <p> The elemental strategy of Two Alpha lies in the fundamental notion of balance: from the engrained spiritual beliefs of yin-yang to the commitment to Qi, balance binds the very fabric of existence and growth. 
+           At Two Alpha, we believe in the balance between risk and stability, ambition and preservation, growth and mitigation. Through extensive quantitative trading algorithms that perform detailed moving average analysis, 
+           including the golden cross EMA, relationships between closing and MA as well as slope and trajectory, Two Alpha attempts to dissect the underlying behaviour, 
+           actions and decisions that drive financial market forces. 
+           Have a peak at our extensive investment processes below. </p>
+         </div>
+       </Jumbotron>
+
+       <Jumbotron fluid>
+         <div className='container'>
            <h2>Recommendation</h2>
+           <p> While the below recommendations work well in an equally weighted portfolio (20% each stock), the below proportions are apt, in our analysis. </p>
            <table>
            <tr>
              <th> Stock Ticker </th>
-             <th> Proportion </th>
+             <th> Proportion (%) </th>
            </tr>
            <tr>
              <td> {top5Arr[4][0]} </td>
-             <td> {portfolioDistributionArr[4]} </td>
+             <td> {rounded[4]} </td>
            </tr>
            <tr>
              <td> {top5Arr[3][0]} </td>
-             <td> {portfolioDistributionArr[3]} </td>
+             <td> {rounded[3]} </td>
            </tr>
            <tr>
              <td> {top5Arr[2][0]} </td>
-             <td> {portfolioDistributionArr[2]} </td>
+             <td> {rounded[2]} </td>
            </tr>
            <tr>
              <td> {top5Arr[1][0]} </td>
-             <td> {portfolioDistributionArr[1]} </td>
+             <td> {rounded[1]} </td>
            </tr>
            <tr>
              <td> {top5Arr[0][0]} </td>
-             <td> {portfolioDistributionArr[0]} </td>
+             <td> {rounded[0]} </td>
            </tr>
            </table>
            <HighchartsReact
