@@ -7,8 +7,10 @@ import React, { Component } from 'react';
 import StockStats from '../../../Data/stocks';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
-import { Jumbotron,Button } from 'reactstrap';
+import { Jumbotron,Button, Nav, NavLink} from 'reactstrap';
+import { Link } from 'react-router-dom';
 import "./style.css";
+import "./TeamProfile.js";
 
 var optionsPie = {
   chart: {
@@ -259,8 +261,46 @@ class Team1 extends Component {
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"/>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"/>
     <link href="style.css" rel="stylesheet"/>
-  <Jumbotron fluid>
-      <h1>Welcome to Team 1!</h1>
+
+
+        <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+          <div class = "container-fluid">
+              <a class = "navbar-brand" href="#"><img height = "100" width = "100"
+              src="https://previews.dropbox.com/p/thumb/AARvvVOiROWPtmx5Amxf4GgSQUwhyOfsGgdyaBLFof4pluv6nV-t-311fSlQOWJc8MST3k-oyhTYe78K6IOikwMSY665emI2DSJpeZ0Q-sLATEt-jvkdf4fOEiW-V0udiqm86Uk44E6RxULCTup8DJDeMbkhNKop9pF7opuwu1Mr9tTzLSS6TJENA8BKKJdMopPDiod0mCesil4E8CQ_lGyjAsxZT-Ytk8NZFzpxMgC8rQ/p.png?size=1280x960&size_mode=3"/></a>
+              <button class= "navbar-toggler" type="button" data-toggle="collapse"
+              data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#TeamProfile.js">Team</a>
+                  </li>
+                </ul>
+              </div>
+          </div>
+        </nav> 
+
+        <div id="slides" class="carousel slides" data-ride="carousel">
+
+        <div class= "carousel-inner">
+          <div class = "carousel-item active">
+            <img src="https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b207890c10d8df3f11b7a520ad57d177&auto=format&fit=crop&w=1950&q=80"/>
+            <div class= "carousel-caption">
+              <h1 class="display-2">Two Alpha</h1>
+              <h3>Investments Group</h3>
+
+            </div>
+          </div>
+          
+        </div>
+        </div>
+
+      <Jumbotron>
+      <h1>Two Alpha's Team</h1>
       <div class='container2-fluid padding'>
         <div class="row padding">
                 <div class="col-lg-4">
@@ -348,9 +388,7 @@ class Team1 extends Component {
                 </div>
             </div>
         </div>
-  </Jumbotron>
-
-
+        </Jumbotron>
 
         <Jumbotron fluid>
           <div className='container'>
