@@ -23,7 +23,7 @@ var optionsPie = {
       text: 'Percentage of Portfolio'
     },
     tooltip: {
-      pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+      enabled: false
     },
     plotOptions: {
       pie: {
@@ -344,6 +344,7 @@ class Team1 extends Component {
                 },
                 series: [{
                                   type: 'area',
+                                  name: top5Arr[i][0],
                                   data: this.matchDateAndValues(this.getdates(top5Arr[i][0]), this.getcloses(top5Arr[i][0]),0)
                               }, {
                                   name: 'Simple Moving Average, 19-day period',
@@ -351,12 +352,31 @@ class Team1 extends Component {
                               },{
                                 name: 'Exponential Moving Average, 19-day period',
                                 data: this.matchDateAndValues(this.getdates(top5Arr[i][0]), this.ema(top5Arr[i][0], 19),19)
+                              },{
+                                name: 'Exponential Moving Average, 39-day period',
+                                data: this.matchDateAndValues(this.getdates(top5Arr[i][0]), this.ema(top5Arr[i][0], 39),39)
                               }]
                 
         }
         optionsLineArr.push(tempOptions);
       }
       return optionsLineArr;
+    }
+    
+    getPortfolioDistributionArr(top5Arr) {
+      let boost = 0;
+      let distArr = [];
+      if (top5Arr[0][1]<1){
+        boost = 1-top5Arr[0][1];
+      }
+      let sum = 0;
+      for (let i=0;i<5;i++) {
+        sum += top5Arr[i][1];
+      }
+      for (let i=0;i<5;i++){
+        distArr.push(top5Arr[i][1]/sum);
+      }
+      return distArr;
     }
 
 
@@ -367,24 +387,25 @@ class Team1 extends Component {
     for (let i=0; i<5; i++){
       console.log(top5Arr[i]);
     }
+    let portfolioDistributionArr = this.getPortfolioDistributionArr(top5Arr);
     optionsPie['series'] = [{
-      name: 'Brands',
+      name: 'Stock',
           colorByPoint: true,
           data: [{
-            name: 'Label1',
-            y: 61.41
+            name: top5Arr[4][0],
+            y: portfolioDistributionArr[4]
           }, {
-            name: 'Label2',
-            y: 18.89
+            name: top5Arr[3][0],
+            y: portfolioDistributionArr[3]
           }, {
-            name: 'Label3',
-            y: 10.85
+            name: top5Arr[2][0],
+            y: portfolioDistributionArr[2]
           }, {
-            name: 'Label4',
-            y: 4.67
+            name: top5Arr[1][0],
+            y: portfolioDistributionArr[1]
           }, {
-            name: 'Label5',
-            y: 4.18
+            name: top5Arr[0][0],
+            y: portfolioDistributionArr[0]
           }]
     }];
     
@@ -511,7 +532,7 @@ class Team1 extends Component {
 
         <Jumbotron fluid>
           <div className='container'>
-            <h2>Example: NBA </h2>
+            <h2>Stock Data for Given Period </h2>
             <HighchartsReact
               highcharts={Highcharts}
               options={optionsLineArr[4]}
