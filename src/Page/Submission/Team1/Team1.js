@@ -90,17 +90,6 @@ var optionsLine = {
         },
 }
  
-function show_image(src, width, height, alt) {
-    var img = document.createElement("img");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    img.alt = alt;
- 
-    // This next line will just add it to the <body> tag
-    document.body.appendChild(img);
-}
- 
 class Team1 extends Component {
  
   getdates(stockName) {
@@ -425,27 +414,15 @@ class Team1 extends Component {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"/>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"/>
     <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
     <link href="style.css" rel="stylesheet"/>
  
  
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
           <div class = "container-fluid">
-              <a class = "navbar-brand" href="#"><img height = "100" width = "100"
-              src="https://previews.dropbox.com/p/thumb/AARvvVOiROWPtmx5Amxf4GgSQUwhyOfsGgdyaBLFof4pluv6nV-t-311fSlQOWJc8MST3k-oyhTYe78K6IOikwMSY665emI2DSJpeZ0Q-sLATEt-jvkdf4fOEiW-V0udiqm86Uk44E6RxULCTup8DJDeMbkhNKop9pF7opuwu1Mr9tTzLSS6TJENA8BKKJdMopPDiod0mCesil4E8CQ_lGyjAsxZT-Ytk8NZFzpxMgC8rQ/p.png?size=1280x960&size_mode=3"/></a>
-              <button class= "navbar-toggler" type="button" data-toggle="collapse"
-              data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#TeamProfile.js">Team</a>
-                  </li>
-                </ul>
-              </div>
+              <a class = "navbar-brand" href="#"><img height = "75" width = "75"
+              src="https://lh4.googleusercontent.com/Z-5WmKeorxX3XHsSYc0afA-dYLVOZwuU1dM_W_fc0eNTytRegnWnVc3e8ufJNqquOcekGv5DxZ6GgQ=w3360-h1728"/>
+              </a>
           </div>
         </nav>
  
@@ -453,7 +430,7 @@ class Team1 extends Component {
  
         <div class= "carousel-inner">
           <div class = "carousel-item active">
-            <img src="https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b207890c10d8df3f11b7a520ad57d177&auto=format&fit=crop&w=1950&q=80"/>
+            <img src="https://lh3.googleusercontent.com/ykwWu7kD8eIAGxXMuSz34Xjy2f8D4v83TBnlNQ08x5OdOwmNamq0mz0EEZ-qoepfF2P2oR-tg2mq9g=w2880-h1428-rw"/>
             <div class= "carousel-caption">
               <h1 class="display-2">Two Alpha</h1>
               <h3>Investments Group</h3>
@@ -471,10 +448,14 @@ class Team1 extends Component {
                <div class="col-lg-4">
                    <div class="card">
                    <div class="container2">
-                       <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB"
+                       <img src="https://lh4.googleusercontent.com/Zh4vGsRP1Ot471HutOy0muHTnQsnDyOHjdbf8Vd8ON4X43wuoLduRV34Wm3UdFonos_ofa6A0aBTsA=w2880-h1428"
                        class="image card-img-top"></img>
                        <div class="overlay overlayFade">
-                           <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
+                           <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. 
+                           With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge 
+                           in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development 
+                           and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his 
+                           current software projects.</div>
                        </div>
                    </div>
                        <div class="card-body">
@@ -486,15 +467,19 @@ class Team1 extends Component {
                <div class="col-lg-4">
                    <div class="card" >
                    <div class="container2">
-                       <img src="https://scontent.fyto1-1.fna.fbcdn.net/v/t1.15752-0/p280x280/46480301_560467854377260_1744096265110552576_n.jpg?_nc_cat=105&_nc_ht=scontent.fyto1-1.fna&oh=a37321acbff527f633a83131fe90767b&oe=5C83A6C5"
+                       <img src="https://lh6.googleusercontent.com/r7oDHD-vNpK-A7eqrFZaQMRwjsa2ka-e4tJOXeYKIfVJRaNJqh-ffyXwgS9Sj6LvDe9OWUjmqmdYYg=w2880-h1428-rw"
                  class="image card-img-top"></img>
                        <div class="overlay overlayFade">
-                           <div class="text">As an avid tech enthusiast, voracious reader, and passionate public speaker, Navya has continuously immersed himself in the realm of financial technologies, quantitative trading and econometrics. He believes that data science holds the power to truly shape human behaviour and structure the unstructured: a belief that manifests in his resolute commitment for data-driven financial architecture and high-frequency-trade systems. A foodie by the day and binge-watcher by the night, Navya is knowledgeable about everything Suits and Brooklyn 99 - a raw elemental passion that he brings to the table in his investment endeavours.</div>
+                           <div class="text">As an avid tech enthusiast, voracious reader, and passionate public speaker, Navya has continuously immersed himself 
+                           in the realm of financial technologies, quantitative trading and econometrics. He believes that data science holds the power to truly 
+                           shape human behaviour and structure the unstructured: a belief that manifests in his resolute commitment for data-driven financial 
+                           architecture and high-frequency-trade systems. A foodie by the day and binge-watcher by the night, Navya is knowledgeable about everything 
+                           Suits and Brooklyn 99 - a raw elemental passion that he brings to the table in his investment endeavours.</div>
                        </div>
                    </div>
                        <div class="card-body">
                            <h4 class="card-title">Navya Mehta</h4>
-                           <p class="card-text">Software Developer</p>
+                           <p class="card-text">Algorithm Developer</p>
                        </div>
                    </div>
                </div>
@@ -505,30 +490,38 @@ class Team1 extends Component {
                <div class="col-lg-4">
                    <div class="card" >
                    <div class="container2">
-                       <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/40764729_1092848604225011_2272057516563103744_n.jpg?_nc_cat=101&_nc_ht=scontent.fyyz1-1.fna&oh=2865d2945eef4c230b45458d2fbc202d&oe=5CB170F2"
+                       <img src="https://lh4.googleusercontent.com/aEbsaWuCYiufoQg_UnFutNF7Rn-w2UoT_KthxxZe9l5KnrBmgmWzdd6pASnzsp5EU_OwzgFi3PHK4w=w2880-h1428-rw"
                        class="image card-img-top"></img>
                        <div class="overlay overlayFade">
-                           <div class="text">With his passion for technology and his eagerness to learn, Oliver is excited to be part of CFM. He is looking forward to his co-op terms, during which he plans to explore the wide variety of opportunities available to those well-versed in both finance and computer science. In his free time, Oliver enjoys listening to and playing music; he is keeping up his musical hobbies by playing violin in the university orchestra, and he will be playing in the pit orchestra for a production of Beauty and the Beast next term. Oliver was also on the MEF Funding Council this term and plans to become further involved in MEF activities during the winter term.</div>
+                           <div class="text">With his passion for technology and his eagerness to learn, Oliver is excited to be part of CFM. He is looking 
+                           forward to his co-op terms, during which he plans to explore the wide variety of opportunities available to those well-versed in both 
+                           finance and computer science. In his free time, Oliver enjoys listening to and playing music; he is keeping up his musical hobbies by 
+                           playing violin in the university orchestra, and he will be playing in the pit orchestra for a production of Beauty and the Beast next term. 
+                           Oliver was also on the MEF Funding Council this term and plans to become further involved in MEF activities during the winter term.</div>
                        </div>
                    </div>
                        <div class="card-body">
                            <h4 class="card-title">Oliver Lingertat</h4>
-                           <p class="card-text">Software Developer</p>
+                           <p class="card-text">Financial Engineer</p>
                        </div>
                    </div>
                </div>
                <div class="col-lg-4">
                    <div class="card" >
                    <div class="container2">
-                       <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.0-9/45558016_197398521155129_5335448614086901760_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=779585b3f66e7b3621f6e94f7951a2e3&oe=5C68CDFB"
+                       <img src="https://lh5.googleusercontent.com/b-sYJBjy1zLCeBZLTzGXJVymvVEYrJJFtw83M6bQtgXGqLhxV4XZYv2MyYIaumc_P3BhTY2rdgURNg=w1440-h714"
                        class="image card-img-top"></img>
                        <div class="overlay overlayFade">
-                           <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his current software projects.</div>
+                           <div class="text">Lucy studies CFM at the University of Waterloo. With her interest in studying algorithms and problem solving, she is passionate 
+                           about various computer science concepts and is eager to learn their applications in real-world projects. Through her internship at THTF, she has 
+                           gained experience in java frameworks and database programming and will continue extending her experience in future coop terms. In her free time, 
+                           she enjoys listening to instrumental music and playing chess. She has participated in and won a few piano competitions, and hopes to flourish her 
+                           university life by pursuing her hobbies.</div>
                        </div>
                    </div>
                        <div class="card-body">
-                           <h4 class="card-title">Sherman Grewal</h4>
-                           <p class="card-text">First Year Associate</p>
+                           <h4 class="card-title">Lucy Cheng</h4>
+                           <p class="card-text">Quantitative Analyst</p>
                        </div>
                    </div>
                </div>
@@ -550,39 +543,43 @@ class Team1 extends Component {
        <Jumbotron fluid>
          <div className='container'>
            <h2>Recommendation</h2>
-           <p> While the below recommendations work well in an equally weighted portfolio (20% each stock), the below proportions are apt, in our analysis. </p>
-           <table>
+           <p> While these stock recommendations work well in an equally weighted portfolio (20% each stock), 
+           a better investment strategy would be to have a greater proportion of the better performing stocks. 
+           The following proportions are ideal, based on the relative strength of each stock. </p>
+           <table class="w3-table-all w3-hoverable w3-centered">
            <tr>
              <th> Stock Ticker </th>
              <th> Proportion (%) </th>
            </tr>
-           <tr>
+           <tr class="w3-hover-grey">
              <td> {top5Arr[4][0]} </td>
              <td> {rounded[4]} </td>
            </tr>
-           <tr>
+           <tr class="w3-hover-grey">
              <td> {top5Arr[3][0]} </td>
              <td> {rounded[3]} </td>
            </tr>
-           <tr>
+           <tr class="w3-hover-grey">
              <td> {top5Arr[2][0]} </td>
              <td> {rounded[2]} </td>
            </tr>
-           <tr>
+           <tr class="w3-hover-grey">
              <td> {top5Arr[1][0]} </td>
              <td> {rounded[1]} </td>
            </tr>
-           <tr>
+           <tr class="w3-hover-grey">
              <td> {top5Arr[0][0]} </td>
              <td> {rounded[0]} </td>
            </tr>
            </table>
+           <br/>
            <HighchartsReact
              highcharts={Highcharts}
              options={optionsPie}
            />
          </div>
        </Jumbotron>
+
  
        <Jumbotron fluid>
          <div className='container'>
@@ -591,25 +588,26 @@ class Team1 extends Component {
              highcharts={Highcharts}
              options={optionsLineArr[4]}
            />
+           <br/>
            <HighchartsReact
              highcharts={Highcharts}
              options={optionsLineArr[3]}
            />
+           <br/>
            <HighchartsReact
              highcharts={Highcharts}
              options={optionsLineArr[2]}
            />
+           <br/>
            <HighchartsReact
              highcharts={Highcharts}
              options={optionsLineArr[1]}
            />
+           <br/>
            <HighchartsReact
              highcharts={Highcharts}
              options={optionsLineArr[0]}
            />
-           Reference:
-           <a href="https://api.highcharts.com/highcharts/series.scatter">Highcharts API</a>
-           <a href="https://dynasties.operationsports.com/team-colors.php?sport=nba">Color Link </a>
          </div>
        </Jumbotron>
      </div>
