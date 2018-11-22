@@ -451,10 +451,11 @@ class Team1 extends Component {
                        <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.15752-9/46508523_356380094929373_3479639231700140032_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=bba6c9f2b1e4de6fadce2da1c6a190ae&oe=5C7198C0"
                        class="image card-img-top"></img>
                        <div class="overlay overlayFade">
-                           <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. 
-                           With hEDGE being Sherman’s first official step into the world of finance, Sherman is looking forward to applying his knowledge 
-                           in computer science to the finance world. Sherman hopes to bring a new aspect to the team with his knowledge in software development 
-                           and interest in the fintech sector. Sherman enjoys working out and playing basketball during his free time, as well as working on his 
+                           <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo.
+                           With his passion for technology and finance, Sherman has immersed himself in the world of FinTech constantly. Sherman is currently
+                           working for hEDGE Financial Services, where he constantly applies his knowledge of software engineering to improve the organization. He 
+                           believe thats technology and finance are hand in hand with one another, and he looks forward to making waves in the finance industry through the
+                           power of technology. Outside of school, Sherman enjoys working out and playing basketball during his free time, as well as working on his 
                            current software projects.</div>
                        </div>
                    </div>
