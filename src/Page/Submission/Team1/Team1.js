@@ -448,7 +448,7 @@ class Team1 extends Component {
                <div class="col-lg-4">
                    <div class="card">
                    <div class="container2">
-                       <img src="https://lh4.googleusercontent.com/Zh4vGsRP1Ot471HutOy0muHTnQsnDyOHjdbf8Vd8ON4X43wuoLduRV34Wm3UdFonos_ofa6A0aBTsA=w2880-h1428"
+                       <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.15752-9/46508523_356380094929373_3479639231700140032_n.jpg?_nc_cat=105&_nc_ht=scontent.fyyz1-1.fna&oh=bba6c9f2b1e4de6fadce2da1c6a190ae&oe=5C7198C0"
                        class="image card-img-top"></img>
                        <div class="overlay overlayFade">
                            <div class="text">Sherman Grewal is a first year Computing and Financial Management student at the University of Waterloo. 
