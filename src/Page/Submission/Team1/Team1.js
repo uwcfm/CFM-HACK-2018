@@ -187,20 +187,6 @@ class Team1 extends Component {
     }
     aboveval = aboveval / 22;
     return aboveval;
-//    let ema19 = this.ema(stockName, 19);
-//    let ema39 = this.ema(stockName, 39);
-//    let sma19 = this.sma19(stockName);
-//    let closearr = this.getcloses(stockName);
-//    let lengthval = closearr.length;
-//    let aboveval = 0;
-//    let impmult = 1;
-//    for (let i=lengthval-38-22; i<lengthval-38; i++)
-//    {
-//      aboveval += impmult * (sma19[i+20] + ema19[i+20] + ema39[i] - 3 * closearr[i+39]);
-//      impmult = impmult * 1.03;
-//    }
-//    aboveval = aboveval / 22;
-//    return aboveval;
   }
  
   emaslope(stockName) {
