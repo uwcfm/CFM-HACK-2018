@@ -421,7 +421,7 @@ class Team1 extends Component {
         <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
           <div class = "container-fluid">
               <a class = "navbar-brand" href="#"><img height = "75" width = "75"
-              src="https://lh4.googleusercontent.com/Z-5WmKeorxX3XHsSYc0afA-dYLVOZwuU1dM_W_fc0eNTytRegnWnVc3e8ufJNqquOcekGv5DxZ6GgQ=w3360-h1728"/>
+              src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.15752-9/46503663_955743324632907_1995580271172255744_n.png?_nc_cat=101&_nc_ht=scontent.fyyz1-1.fna&oh=190f8abd7293e4318454beadb05cca91&oe=5C764765"/>
               </a>
           </div>
         </nav>
@@ -430,7 +430,7 @@ class Team1 extends Component {
  
         <div class= "carousel-inner">
           <div class = "carousel-item active">
-            <img src="https://lh3.googleusercontent.com/ykwWu7kD8eIAGxXMuSz34Xjy2f8D4v83TBnlNQ08x5OdOwmNamq0mz0EEZ-qoepfF2P2oR-tg2mq9g=w2880-h1428-rw"/>
+            <img src="https://images.unsplash.com/photo-1462899006636-339e08d1844e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b207890c10d8df3f11b7a520ad57d177&auto=format&fit=crop&w=1050&q=80"/>
             <div class= "carousel-caption">
               <h1 class="display-2">Two Alpha</h1>
               <h3>Investments Group</h3>
@@ -467,7 +467,7 @@ class Team1 extends Component {
                <div class="col-lg-4">
                    <div class="card" >
                    <div class="container2">
-                       <img src="https://lh6.googleusercontent.com/r7oDHD-vNpK-A7eqrFZaQMRwjsa2ka-e4tJOXeYKIfVJRaNJqh-ffyXwgS9Sj6LvDe9OWUjmqmdYYg=w2880-h1428-rw"
+                       <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.15752-9/p2048x2048/46495831_362603924502951_1101119792380641280_n.jpg?_nc_cat=100&_nc_ht=scontent.fyyz1-1.fna&oh=a6fa092e29026b63c1320cadd9888398&oe=5C740F72"
                  class="image card-img-top"></img>
                        <div class="overlay overlayFade">
                            <div class="text">As an avid tech enthusiast, voracious reader, and passionate public speaker, Navya has continuously immersed himself 
@@ -490,7 +490,7 @@ class Team1 extends Component {
                <div class="col-lg-4">
                    <div class="card" >
                    <div class="container2">
-                       <img src="https://lh4.googleusercontent.com/aEbsaWuCYiufoQg_UnFutNF7Rn-w2UoT_KthxxZe9l5KnrBmgmWzdd6pASnzsp5EU_OwzgFi3PHK4w=w2880-h1428-rw"
+                       <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.15752-9/46493566_334967853957916_969407099761065984_n.jpg?_nc_cat=106&_nc_ht=scontent.fyyz1-1.fna&oh=4159fb7821863b6f41d1467138ba7c9b&oe=5C73B6DD"
                        class="image card-img-top"></img>
                        <div class="overlay overlayFade">
                            <div class="text">With his passion for technology and his eagerness to learn, Oliver is excited to be part of CFM. He is looking 
@@ -509,7 +509,7 @@ class Team1 extends Component {
                <div class="col-lg-4">
                    <div class="card" >
                    <div class="container2">
-                       <img src="https://lh5.googleusercontent.com/b-sYJBjy1zLCeBZLTzGXJVymvVEYrJJFtw83M6bQtgXGqLhxV4XZYv2MyYIaumc_P3BhTY2rdgURNg=w1440-h714"
+                       <img src="https://scontent.fyyz1-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/46513411_1921533404567437_2315153828296523776_n.jpg?_nc_cat=102&_nc_ht=scontent.fyyz1-1.fna&oh=40dfa9a32360f25e8380771deaf09d04&oe=5C682EB2"
                        class="image card-img-top"></img>
                        <div class="overlay overlayFade">
                            <div class="text">Lucy studies CFM at the University of Waterloo. With her interest in studying algorithms and problem solving, she is passionate 
