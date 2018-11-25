@@ -17,6 +17,7 @@ class NavBar extends React.Component {
         <Nav pills>
           <NavLink tag={Link} to='/'>Home</NavLink>
           <NavLink tag={Link} to='/example'>Example</NavLink>
+          <NavLink tag={Link} to='/result'>Result</NavLink>
           <UncontrolledDropdown nav inNavbar>
             <DropdownToggle nav caret>
               Submission

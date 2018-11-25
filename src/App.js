@@ -5,6 +5,7 @@ import Nav from './Components/Nav';
 import Footer from './Components/Footer';
 import Home from './Page/Home';
 import Example from './Page/Example';
+import Result from './Page/Result';
 import {Team1, Team2, Team3, Team4, Team5, Team6, Team7, Team8, Team9, Team10} from './Page/Submission';
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
             <Switch>
               <Route exact path={`/`} component={Home} />
               <Route exact path={`/example`} component={Example} />
+              <Route exact path={`/result`} component={Result} />
               <Route path={`/submission/team/:id`} component={this.renderTeam}/>
 
               <Route render={function () {
