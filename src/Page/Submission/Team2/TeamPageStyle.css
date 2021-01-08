@@ -1,0 +1,46 @@
+.flex-container-tab {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+    .flex-container-tab h3 {
+        background-color: #5a91bf;
+        width: 50%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-family: Calibri Light;
+        font-size: 25px;
+        color: white;
+    }
+
+    .flex-container-tab h1 {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-evenly;
+        font-size: 50px;
+        font-family: Calibri Light;
+    }
+
+.flex-container-even {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.flex-container-even .left {
+    margin: 0 auto 0 0;
+}
+
+#teamBackground {
+    background-image: url("https://ak1.picdn.net/shutterstock/videos/11790341/thumb/1.jpg");
+    background-size: cover;
+    height: 800px;
+    width: 1110px;
+    position: absolute;
+    z-index: -3;
+    opacity: 0.3;
+}

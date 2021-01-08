@@ -1,0 +1,153 @@
+.flex-container {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: row;
+}
+
+#main .flex-container {
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.flex-container * {
+	display: block;
+	margin: 0px;
+	padding: 15px;
+	vertical-align: middle;
+}
+
+.flex-container button {
+	background-color: #336699;
+	opacity: 0.8;
+	color: white;
+	text-align: center;
+	transition: background-color 1s;
+	min-width: 200px;
+	border: 0px;
+}
+
+.flex-container button:hover {
+	background-color: #79a6d2;
+	opacity: 0.4;
+}
+
+/*this is the delta stuff*/
+.flex-container h1 {
+	background-color: #336699;
+	width: 100%;
+	opacity: 0.8;
+	padding-left: 130px;
+//	border: 1px solid white;
+	font-family: Times New Roman; 
+	font-size: 30px;
+	color: white;
+}
+
+#main {
+	width: 100%;
+	background-color: ##ff0080;
+}
+
+#homePage {
+	width: 100%;
+	background-color: ##ff0080;
+}
+
+/* the blue container background */
+#background {
+	height:400px;
+	width:350px;
+	background-color: #003366;
+	opacity:0.6;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:-1;
+}
+
+/*the paragraph about us*/
+#blurb  {
+	font-family: Calibri Light;
+	font-style: italic;
+	font-size: 22px;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	color: white;
+	text-align: justify;
+	height: 400px;
+	width: 350px;
+//	text-shadow: 2px 1px black;
+//	background-color: yellow;
+}
+
+#container {
+	background-image: url("skyscraper.jpg");
+	background-size: cover;
+	height:400px;
+	width:1110px;
+	position: absolute;
+	z-index:-2;
+}
+
+@font-face {
+	font-family: Julius Sans One; 
+	src: url(Fonts/JuliusSansOne-Regular.ttf);
+}
+
+/* summary stuff */
+.summary h1 {
+	font-family: Calibri Light;
+	font-size: 35px;
+	padding: 60px;
+	width: 1110px;
+	text-align: center;
+	color: #00246d;
+	color: white;
+	letter-spacing: 2px;
+}
+
+.summary {
+	background: linear-gradient(to bottom, #003366 0%, #001a33 45%);
+	font-family: Calibri Light;
+	color: white;
+	position: relative;
+	height: 900px;
+}
+
+#company1 {
+	position: absolute;
+	top: 400px;
+	left: 100px;	
+}
+
+#company3 {
+	position: absolute;
+	top: 400px;
+	right: 100px;
+}
+
+#company2 {
+	position: absolute;
+	top: 400px;
+	right: 500px;
+}
+
+#company4 {
+	position: absolute;
+	top: 700px;
+	left: 250px;
+}
+
+#company5 {
+	position: absolute;
+	top: 700px;
+	right: 250px;
+}
+
+p {
+	font-size: 18px;
+}
